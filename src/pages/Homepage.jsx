@@ -65,8 +65,8 @@ function Homepage(props) {
 					<p>Your Bootcamps sidebar</p>
 				</div>
 
-				{/* display welcome banner */}
 				<div className="homepage-content-right">
+					{/* display welcome banner */}
 					<div className="welcome-banner" key={teacher?._id}>
 						{teacher && (
 							<>
@@ -75,7 +75,8 @@ function Homepage(props) {
 							</>
 						)}
 					</div>
-
+					{/* end */}
+				
 					<section className="homepage-news-block">
 						<h3>Bootcamp News</h3>
 						<div>
