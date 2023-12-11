@@ -7,6 +7,7 @@ import Homepage from './pages/Homepage';
 import ProfilePage from './pages/ProfilePage';
 import BootcampsPage from './pages/BootcampsPage';
 import SpesificBootcampPage from './pages/SpesificBootcampPage';
+import SpesificModulePage from './pages/SpesificModulePage';
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 					path="/bootcamps/:bootcampId"
 					element={<SpesificBootcampPage />}
 				/>
+				<Route path="/modules/:moduleId" element={<SpesificModulePage />} />
 			</Routes>
 		</div>
 	);

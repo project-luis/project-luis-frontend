@@ -11,7 +11,6 @@ function SpesificBootcampPage() {
 	const getBootcampFromApi = () => {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
-
 			axios
 				.get(`${API_URL}/bootcamps/${bootcampId}`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
@@ -23,6 +22,7 @@ function SpesificBootcampPage() {
 				})
 				.catch((error) => {
 					console.log(`API: Connection Failed: ${error}`);
+					console.log(bootcampId);
 				});
 		}, []);
 	};

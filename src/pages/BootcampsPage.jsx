@@ -40,7 +40,7 @@ function BootcampsPage() {
 							<ul className="modules-list">
 								{[...bootcamp.modules].map((module, i) => {
 									return (
-										<Link key={i} to={`/bootcamps/modules/${module._id}`}>
+										<Link key={i} to={`/modules/${module._id}`}>
 											<li className="single-module">
 												<img
 													className="bootcamps-module-logo"
@@ -56,11 +56,10 @@ function BootcampsPage() {
 					);
 				})}
 			</section>
-			
+
 			<Link to="/index">
 				<button>(TEMP) Home</button>
 			</Link>
-			
 		</div>
 	);
 }
