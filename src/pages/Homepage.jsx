@@ -27,7 +27,7 @@ function Homepage(props) {
 	return (
 		<>
 			<div className="hamburger">
-				<Link to="/profile">
+				<Link to="/profile/:profileId">
 					<button>My Profile</button>
 				</Link>
 
