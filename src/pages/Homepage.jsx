@@ -15,6 +15,7 @@ function Homepage(props) {
             .get(`${API_URL}/profile/${teacherId}`)
             .then((response) => {
                 setTeacher(response.data);
+                console.log(teacherId);
             })
             .catch((error) => console.log(error))
 
@@ -27,7 +28,7 @@ function Homepage(props) {
 
             <div className="hamburger">
 
-                <Link to="/profile/:profileId">
+                <Link to={`/profile/${teacherId}`}>
                     <button>My Profile</button>
                 </Link>
 
