@@ -35,13 +35,23 @@ function BootcampsPage() {
 						<div key={i} className="bootcamp">
 							<Link to={`/bootcamps/${bootcamp.id}`}>
 								<h2>{bootcamp.name}</h2>
-								<p>{bootcamp.description}</p>
-								<ul className="modules-list">
-									{[...bootcamp.modules].map((module, i) => {
-										return <li key={i}>{module.name}</li>;
-									})}
-								</ul>
 							</Link>
+							<p>{bootcamp.description}</p>
+							<ul className="modules-list">
+								{[...bootcamp.modules].map((module, i) => {
+									return (
+										<Link key={i} to={`/bootcamps/modules/${module._id}`}>
+											<li className="single-module">
+												<img
+													className="bootcamps-module-logo"
+													src={module.avatarUrl}
+												/>
+												{module.name}
+											</li>
+										</Link>
+									);
+								})}
+							</ul>
 						</div>
 					);
 				})}
