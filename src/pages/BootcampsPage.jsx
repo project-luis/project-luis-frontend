@@ -56,6 +56,11 @@ function BootcampsPage() {
 					);
 				})}
 			</section>
+			
+			<Link to="/index">
+				<button>(TEMP) Home</button>
+			</Link>
+			
 		</div>
 	);
 }

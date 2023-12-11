@@ -58,6 +58,9 @@ function SpesificBootcampPage() {
 			<section className="bootcamp-buttons">
 				<button>Edit Bootcamp</button>
 				<button>Delete Bootcamp</button>
+				<Link to="/index">
+					<button>(TEMP) Home</button>
+				</Link>
 			</section>
 		</div>
 	);
