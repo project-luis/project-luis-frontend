@@ -33,7 +33,7 @@ function BootcampsPage() {
 				{[...bootcampsArray].map((bootcamp, i) => {
 					return (
 						<div key={i} className="bootcamp">
-							<Link to={`/bootcamps/${bootcamp.id}`}>
+							<Link to={`/bootcamps/${bootcamp._id}`}>
 								<h2>{bootcamp.name}</h2>
 							</Link>
 							<p>{bootcamp.description}</p>

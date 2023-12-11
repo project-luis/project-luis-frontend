@@ -35,3 +35,70 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
 }
+
+.bootcamp {
+    border: 1px solid gray;
+    margin: 1em;
+    padding: 1em;
+}
+
+.modules-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.single-module {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bootcamps-module-logo {
+    width: 3rem;
+    height: auto;
+}
+
+.spesificBootcamp {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.bootcamp-modules-list {
+    border: 0.4em inset gray;
+    margin-top: 8%;
+    padding: 1%;
+    
+}
+
+.bootcamp-single-module {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10%;
+
+}
+
+.bootcamp-module-logo {
+    width: 3rem;
+    height: auto;
+}
+
+.description-and-teacher {
+    margin: 2%;
+}
+
+.bootcamp-buttons {
+    display: flex;
+    position: absolute;
+    top: 80%;
+    left: 75%;
+    gap: 5%;
+    width: 1em;
+    height: 4em;
+}

@@ -6,6 +6,7 @@ import SignUpPage from './pages/SignUpPage';
 import Homepage from './pages/Homepage';
 import ProfilePage from './pages/ProfilePage';
 import BootcampsPage from './pages/BootcampsPage';
+import SpesificBootcampPage from './pages/SpesificBootcampPage';
 
 function App() {
 	return (
@@ -16,6 +17,10 @@ function App() {
 				<Route path="/index" element={<Homepage />} />
 				<Route path="/profile/:profileId" element={<ProfilePage />} />
 				<Route path="/bootcamps" element={<BootcampsPage />} />
+				<Route
+					path="/bootcamps/:bootcampId"
+					element={<SpesificBootcampPage />}
+				/>
 			</Routes>
 		</div>
 	);
