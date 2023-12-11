@@ -28,7 +28,7 @@ function LoginPage(props) {
 				console.log('logged ın');
 				console.log("JWT token", response.data.authToken);
 				storeToken(response.data.authToken);
-				autheticateUser();
+				authenticateUser();
 				navigate("/index");
 			})
 			.catch((error) => {
