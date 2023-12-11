@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { AuthContext } from '../context/auth.context';
 
 const API_URL = 'http://localhost:5005';
 
 function Homepage(props) {
+	const { user } = useContext(AuthContext);
 	const getAccessFromApi = () => {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
@@ -27,7 +29,7 @@ function Homepage(props) {
 	return (
 		<>
 			<div className="hamburger">
-				<Link to="/profile/:profileId">
+				<Link to={`/profile/${user?._id}`}>
 					<button>My Profile</button>
 				</Link>
 
@@ -41,7 +43,8 @@ function Homepage(props) {
 			</div>
 
 			<div className="welcome-banner">
-				<p>Welcome name!</p>
+				<p>Welcome {user.fullName}</p>
+				<p>Welcome {user.email}</p>
 			</div>
 
 			<section>

@@ -8,19 +8,20 @@ const API_URL = "http://localhost:5005";
 
 function ProfilePage(props) {
     const [teacherProfile, setTeacherProfile] = useState([]);
-    const { teacherId } = useParams();
+    const { profileId } = useParams();
 
     const getTeacherProfile = () => {
         useEffect(() => {
             const storedToken = localStorage.getItem("authToken");
-            
+
             axios
-                .get(`${API_URL}/profile/${teacherId}`,
-                    { headers: { Authorization: `Bearer ${storedToken}` }
-                })
+                .get(`${API_URL}/profile/${profileId}`,
+                    {
+                        headers: { Authorization: `Bearer ${storedToken}` }
+                    })
                 .then((response) => {
-                    const oneProfile = response.data;
-                    setTeacherProfile(oneProfile);
+                    const userProfile = response.data;
+                    setTeacherProfile(userProfile);
                 })
                 .catch((error) => console.log(error)
                 );
@@ -37,19 +38,19 @@ function ProfilePage(props) {
                 <Link to="/index">
                     <button className="nav-home">Home</button>
                 </Link>
-                
-                <h2>{`Welcome, ${teacherProfile.hello}!`}</h2>
+
             </div>
 
             <div className="profile-details-container">
                 Profile details container
-                {[...teacherProfile].map((teacher, i) => {
-                    return(
-                        <div key={teacher.id} className="profile-content">
-                            <p>{teacher.fullName}</p>
-                        </div>
-                    )
-                })}
+                <div className="profile-content">
+                    <p>{teacherProfile.fullName}</p>
+                    <p>{teacherProfile.email}</p>
+                    <p><img src={teacherProfile.avatarUrl} /></p>
+                    <p>{teacherProfile.fullName}</p>
+                    <p>{teacherProfile.fullName}</p>
+                    <p>{teacherProfile.fullName}</p>
+                </div>
                 <button>Edit Profile</button>
                 <button>Log Out</button>
                 <button>Delete Account</button>
