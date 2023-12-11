@@ -38,14 +38,13 @@ function ProfilePage(props) {
                 <Link to="/index">
                     <button className="nav-home">Home</button>
                 </Link>
-
             </div>
 
             <div className="profile-page-full">
 
                 <div className="profile-page-sidebar">
                     <div className="profile-details-container">
-                        Profile details container
+                        (...profile details container -- <b>DELETE</b> this text later...)
                         
                         <div className="profile-details-content">
                             <p><img src={teacherProfile.avatarUrl} className="profile-avatar" /></p>
@@ -59,7 +58,7 @@ function ProfilePage(props) {
                     </div>
 
                     <div className="profile-contacts-container">
-                        Contact (websites, socials, email, etc.) container
+                        (...contact (websites, socials, email, etc.) container -- <b>DELETE</b> this text later...)
 
                         <div className="profile-contacts-content">
                             <p><a href={teacherProfile.email}>Email</a></p>
@@ -75,6 +74,10 @@ function ProfilePage(props) {
                         <p className="profile-about-text">
                             <h2>
                                 This "about me / details" section should be part of the schema that the user can edit.
+                            </h2>
+                            <br />
+                            <h2>
+                                Should the "Edit Profile" button re-direct to an edit profile page or to just an edit profile pop-up?
                             </h2>
                             <br />
                             <h2>
