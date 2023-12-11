@@ -47,7 +47,7 @@ function Homepage(props) {
 
 				<div className="homepage-content-right">
 					<div className="welcome-banner">
-						<h2>Welcome --user--</h2>
+						<h2>Welcome, {user.email}!</h2>
 					</div>
 
 					<section className="homepage-news-block">
