@@ -9,6 +9,7 @@ const API_URL = 'http://localhost:5005';
 
 function Homepage(props) {
 	const { user } = useContext(AuthContext);
+
 	const getAccessFromApi = () => {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
@@ -28,6 +29,25 @@ function Homepage(props) {
 
 	getAccessFromApi();
 
+
+	// does this work just to display the name in the welcome banner?
+	const [teacher, setTeacher] = useState({});
+	const { teacher_Id } = useParams;
+
+	const getTeacherInfo = () => {
+		axios
+			.get(`${API_URL}/profile/${teacher_Id}`)
+			.then((response) => {
+				setTeacher(response.data);
+			})
+			.catch((error) => console.log(error));
+	}
+
+	useEffect(() => {
+		getTeacherInfo();
+	}, [])
+	// -------------------------- (end) name display in welcome banner
+
 	return (
 		<>
 			<div className="homepage-hamburger-menu">
@@ -45,9 +65,15 @@ function Homepage(props) {
 					<p>Your Bootcamps sidebar</p>
 				</div>
 
+				{/* display welcome banner */}
 				<div className="homepage-content-right">
-					<div className="welcome-banner">
-						<h2>Welcome, {user.email}!</h2>
+					<div className="welcome-banner" key={teacher?._id}>
+						{teacher && (
+							<>
+								<h2>{`Welcome, ${teacher.email}!`}</h2>
+								<h2>Welcome, {teacher.fullName}!</h2>
+							</>
+						)}
 					</div>
 
 					<section className="homepage-news-block">
