@@ -77,7 +77,7 @@ function EditBootcampPopup(props) {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
 			axios
-				.get(`${API_URL}/bootcamps/${bootcampId}`, {
+				.get(`${import.meta.env.VITE_API_URL}/bootcamps/${bootcampId}`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {
@@ -111,9 +111,13 @@ function EditBootcampPopup(props) {
 		const storedToken = localStorage.getItem('authToken');
 
 		axios
-			.put(`${API_URL}/bootcamps/${bootcampId}`, requestBody, {
-				headers: { Authorization: `Bearer ${storedToken}` },
-			})
+			.put(
+				`${import.meta.env.VITE_API_URL}/bootcamps/${bootcampId}`,
+				requestBody,
+				{
+					headers: { Authorization: `Bearer ${storedToken}` },
+				}
+			)
 			.then((response) => {
 				console.log('Edit successful');
 				props.setTrigger(false);

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import AddBootcampPopup from '../components/AddBootcampPopup';
 
 function BootcampsPage() {
 	const [bootcampsArray, setBootcampsArray] = useState([]);
+	const [addButtonPopup, setAddButtonPopup] = useState(false);
 
 	const getBootcampsFromApi = () => {
 		useEffect(() => {
@@ -55,6 +57,17 @@ function BootcampsPage() {
 				})}
 			</section>
 
+			<button
+				onClick={() => {
+					setAddButtonPopup(true);
+				}}
+			>
+				Add Bootcamp
+			</button>
+			<AddBootcampPopup
+				trigger={addButtonPopup}
+				setTrigger={setAddButtonPopup}
+			></AddBootcampPopup>
 			<Link to="/index">
 				<button>(TEMP) Home</button>
 			</Link>

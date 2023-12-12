@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5005';
-
 function SpesificModulePage() {
 	const [bootcampsArray, setbootcampsArray] = useState([]);
 	const [module, setModule] = useState('');
@@ -13,7 +11,7 @@ function SpesificModulePage() {
 			const storedToken = localStorage.getItem('authToken');
 
 			axios
-				.get(`${API_URL}/modules/${moduleId}`, {
+				.get(`${import.meta.env.VITE_API_URL}/modules/${moduleId}`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {
@@ -30,7 +28,7 @@ function SpesificModulePage() {
 	const deleteModule = () => {
 		const storedToken = localStorage.getItem('authToken');
 		axios
-			.delete(`${API_URL}/modules/${moduleId}`, {
+			.delete(`${import.meta.env.VITE_API_URL}/modules/${moduleId}`, {
 				headers: { Authorization: `Bearer ${storedToken}` },
 			})
 			.then(() => {

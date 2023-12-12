@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import EditBootcampPopup from './EditBootcampPopUp';
+import EditBootcampPopup from '../components/EditBootcampPopup';
 
 function SpesificBootcampPage() {
 	const [modulesArray, setModulesArray] = useState([]);
@@ -30,7 +30,7 @@ function SpesificBootcampPage() {
 	const deleteBootcamp = () => {
 		const storedToken = localStorage.getItem('authToken');
 		axios
-			.delete(`${API_URL}/bootcamps/${bootcampId}`, {
+			.delete(`${import.meta.env.VITE_API_URL}/bootcamps/${bootcampId}`, {
 				headers: { Authorization: `Bearer ${storedToken}` },
 			})
 			.then(() => {
@@ -75,10 +75,10 @@ function SpesificBootcampPage() {
 				>
 					Edit Bootcamp
 				</button>
-				<EditBootcampPopup
+				{/* <EditBootcampPopup
 					trigger={editButtonPopup}
 					setTrigger={setEditButtonPopup}
-				></EditBootcampPopup>
+				></EditBootcampPopup> */}
 				<Link to={'/bootcamps'}>
 					<button onClick={deleteBootcamp}>Delete Bootcamp</button>
 				</Link>
