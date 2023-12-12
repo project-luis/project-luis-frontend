@@ -7,6 +7,8 @@ import '../tempHomepageCss.css';
 
 function Homepage(props) {
 
+	const [popup, setPopup] = useState(false);
+
 	const { user } = useContext(AuthContext);
 
 	const getAccessFromApi = () => {
@@ -69,6 +71,7 @@ function Homepage(props) {
 				</div>
 
 			</div>
+
 		</>
 	);
 }

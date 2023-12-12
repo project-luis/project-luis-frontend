@@ -196,3 +196,32 @@ h2 {
     top: 16px;
     right: 16px;
 }
+
+/* popup */
+
+.edit-profile-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 85vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-profile-popup-inner {
+    position: relative;
+    padding: 30px;
+    width: 80%;
+    height: 80%;
+    max-width: 500px;
+    background-color: navy;
+}
+
+.edit-profile-popup-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
