@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import EditBootcampPopup from '../components/EditBootcampPopup';
 
 function SpesificBootcampPage() {
 	const [modulesArray, setModulesArray] = useState([]);
 	const [bootcamp, setBootcamp] = useState('');
+	const [editButtonPopup, setEditButtonPopup] = useState(false);
 	const { bootcampId } = useParams();
 	const getBootcampFromApi = () => {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
-
 			axios
 				.get(`${import.meta.env.VITE_API_URL}/bootcamps/${bootcampId}`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
@@ -21,8 +22,21 @@ function SpesificBootcampPage() {
 				})
 				.catch((error) => {
 					console.log(`API: Connection Failed: ${error}`);
+					console.log(bootcampId);
 				});
 		}, []);
+	};
+
+	const deleteBootcamp = () => {
+		const storedToken = localStorage.getItem('authToken');
+		axios
+			.delete(`${import.meta.env.VITE_API_URL}/bootcamps/${bootcampId}`, {
+				headers: { Authorization: `Bearer ${storedToken}` },
+			})
+			.then(() => {
+				navigate('/bootcamps');
+			})
+			.catch((err) => console.log(err));
 	};
 
 	getBootcampFromApi();
@@ -33,7 +47,7 @@ function SpesificBootcampPage() {
 				<h3>Modules</h3>
 				{[...modulesArray].map((module, i) => {
 					return (
-						<Link key={i} to={`/bootcamps/modules/${module._id}`}>
+						<Link key={i} to={`/modules/${module._id}`}>
 							<li className="bootcamp-single-module">
 								<img className="bootcamp-module-logo" src={module.avatarUrl} />
 								{module.name}
@@ -54,8 +68,20 @@ function SpesificBootcampPage() {
 				<p>{bootcamp.description}</p>
 			</section>
 			<section className="bootcamp-buttons">
-				<button>Edit Bootcamp</button>
-				<button>Delete Bootcamp</button>
+				<button
+					onClick={() => {
+						setEditButtonPopup(true);
+					}}
+				>
+					Edit Bootcamp
+				</button>
+				{/* <EditBootcampPopup
+					trigger={editButtonPopup}
+					setTrigger={setEditButtonPopup}
+				></EditBootcampPopup> */}
+				<Link to={'/bootcamps'}>
+					<button onClick={deleteBootcamp}>Delete Bootcamp</button>
+				</Link>
 				<Link to="/index">
 					<button>(TEMP) Home</button>
 				</Link>

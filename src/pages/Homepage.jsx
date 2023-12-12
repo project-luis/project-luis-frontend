@@ -1,13 +1,11 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 
-import "../tempHomepageCss.css";
+import '../tempHomepageCss.css';
 
 function Homepage(props) {
-	const { user } = useContext(AuthContext);
-
 	const getAccessFromApi = () => {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
@@ -29,7 +27,7 @@ function Homepage(props) {
 
 	return (
 		<>
-			<div className="homepage-hamburger-menu">
+			<div className="hamburger">
 				<Link to={`/profile/${user?._id}`}>
 					<button>My Profile</button>
 				</Link>
@@ -39,14 +37,13 @@ function Homepage(props) {
 				</Link>
 			</div>
 
-			<div className="homepage-full">
-				<div className="homepage-sidebar-left">
-					<p>Your Bootcamps sidebar</p>
-				</div>
+			<div className="sidebar-left">
+				<h3>--This is the sidebar -- Your Bootcamps</h3>
+			</div>
 
 				<div className="homepage-content-right">
 					<div className="welcome-banner">
-						<h2>{`Hello ${user?.fullName}!`}</h2>
+						<h2>`Hello ${user?.fullName}`</h2>
 					</div>
 				
 					<section className="homepage-news-block">

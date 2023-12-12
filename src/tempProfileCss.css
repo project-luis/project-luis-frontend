@@ -122,8 +122,77 @@ h2 {
     display: flex;
     position: absolute;
     top: 80%;
-    left: 75%;
+    left: 50%;
     gap: 5%;
     width: 1em;
     height: 4em;
+}
+
+.spesificModule {
+    display: flex;
+}
+
+.module-modules-list {
+    border: 0.4em inset gray;
+    width: 10em;
+    list-style-type: none;
+}
+
+.module-modules-list ul{
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+
+}
+
+.module-description {
+    padding: 5%;
+}
+
+.module-avatar {
+    width: 4rem;
+    height: auto;
+}
+
+.module-buttons {
+    display: flex;
+    position: absolute;
+    top: 80%;
+    left: 60%;
+    gap: 5%;
+    width: 1em;
+    height: 4em;
+}
+
+.edit-bootcamp-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: gray; /* background color of popup outside */
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.bootcamp-popup-inner {
+    position: relative;
+    padding: 30px;
+    width: 100%;
+    max-width: 640px;
+    background-color: #242424; /* background color of popup itself */
+}
+
+.edit-bootcamp-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
 }
