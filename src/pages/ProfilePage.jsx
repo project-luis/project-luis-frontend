@@ -4,8 +4,6 @@ import axios from "axios";
 
 import "../tempProfileCss.css";
 
-const API_URL = "http://localhost:5005";
-
 function ProfilePage(props) {
     const [teacherProfile, setTeacherProfile] = useState([]);
     const { profileId } = useParams();
@@ -15,7 +13,7 @@ function ProfilePage(props) {
             const storedToken = localStorage.getItem("authToken");
 
             axios
-                .get(`${API_URL}/profile/${profileId}`,
+                .get(`${import.meta.env.VITE_API_URL}/profile/${profileId}`,
                     {
                         headers: { Authorization: `Bearer ${storedToken}` }
                     })

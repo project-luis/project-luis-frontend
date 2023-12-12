@@ -5,8 +5,6 @@ import { AuthContext } from '../context/auth.context';
 
 import "../tempHomepageCss.css";
 
-const API_URL = 'http://localhost:5005';
-
 function Homepage(props) {
 	const { user } = useContext(AuthContext);
 
@@ -15,7 +13,7 @@ function Homepage(props) {
 			const storedToken = localStorage.getItem('authToken');
 
 			axios
-				.get(`${API_URL}/index`, {
+				.get(`${import.meta.env.VITE_API_URL}/index`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {
@@ -36,7 +34,7 @@ function Homepage(props) {
 
 	const getTeacherInfo = () => {
 		axios
-			.get(`${API_URL}/profile/${teacher_Id}`)
+			.get(`${import.meta.env.VITE_API_URL}/profile/${teacher_Id}`)
 			.then((response) => {
 				setTeacher(response.data);
 			})
