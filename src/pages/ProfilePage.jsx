@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
+import EditProfilePopup from '../components/EditProfilePopup';
+
 import '../tempProfileCss.css';
 
 function ProfilePage(props) {
-	const [teacherProfile, setTeacherProfile] = useState([]);
 	const { profileId } = useParams();
+	const [teacherProfile, setTeacherProfile] = useState([]);
+	const [editProfileButton, setEditProfileButton] = useState(false);
 
 	const getTeacherProfile = () => {
 		useEffect(() => {
@@ -106,7 +109,16 @@ function ProfilePage(props) {
 					<div className="profile-buttons-container">
 						<button className="profile-buttons">My Bootcamps</button>
 						<button className="profile-buttons">My Modules</button>
-						<button className="profile-buttons">Edit Profile</button>
+
+						<button
+							className="profile-buttons"
+							onClick={() => setEditProfileButton(true)}>Edit Profile</button>
+
+						<EditProfilePopup
+							trigger={editProfileButton}
+							setTrigger={setEditProfileButton}
+						></EditProfilePopup>
+
 						<button className="profile-buttons">Log Out</button>
 					</div>
 				</div>
