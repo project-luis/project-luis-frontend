@@ -27,12 +27,24 @@ function SpesificModulePage() {
 		}, []);
 	};
 
+	const deleteModule = () => {
+		const storedToken = localStorage.getItem('authToken');
+		axios
+			.delete(`${API_URL}/modules/${moduleId}`, {
+				headers: { Authorization: `Bearer ${storedToken}` },
+			})
+			.then(() => {
+				navigate(`/bootcamps`);
+			})
+			.catch((err) => console.log(err));
+	};
+
 	getModuleFromApi();
 
 	return (
 		<div className="spesificModule">
 			<section className="module-modules-list">
-				<h3>Modules</h3>
+				<h3>Bootcamps</h3>
 				<li>
 					<ul>
 						This will be the list of bootcamps that related with this module
@@ -51,7 +63,9 @@ function SpesificModulePage() {
 			</section>
 			<section className="module-buttons">
 				<button>Edit Module</button>
-				<button>Delete Module</button>
+				<Link to={'/bootcamps'}>
+					<button onClick={deleteModule}>Delete Module</button>
+				</Link>
 				<Link to="/index">
 					<button>(TEMP) Home</button>
 				</Link>

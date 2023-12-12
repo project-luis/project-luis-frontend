@@ -165,3 +165,34 @@ h2 {
     width: 1em;
     height: 4em;
 }
+
+.edit-bootcamp-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: gray; /* background color of popup outside */
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.bootcamp-popup-inner {
+    position: relative;
+    padding: 30px;
+    width: 100%;
+    max-width: 640px;
+    background-color: #242424; /* background color of popup itself */
+}
+
+.edit-bootcamp-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
