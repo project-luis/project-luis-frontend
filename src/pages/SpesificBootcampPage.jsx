@@ -75,10 +75,10 @@ function SpesificBootcampPage() {
 				>
 					Edit Bootcamp
 				</button>
-				{/* <EditBootcampPopup
+				<EditBootcampPopup
 					trigger={editButtonPopup}
 					setTrigger={setEditButtonPopup}
-				></EditBootcampPopup> */}
+				></EditBootcampPopup>
 				<Link to={'/bootcamps'}>
 					<button onClick={deleteBootcamp}>Delete Bootcamp</button>
 				</Link>
