@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
@@ -6,6 +6,9 @@ import { AuthContext } from '../context/auth.context';
 import '../tempHomepageCss.css';
 
 function Homepage(props) {
+
+	const { user } = useContext(AuthContext);
+
 	const getAccessFromApi = () => {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
@@ -27,23 +30,24 @@ function Homepage(props) {
 
 	return (
 		<>
-			<div className="hamburger">
-				<Link to={`/profile/${user?._id}`}>
-					<button>My Profile</button>
-				</Link>
+			<div className="homepage-full">
+				<div className="homepage-hamburger-menu">
+					<Link to={`/profile/${user?._id}`}>
+						<button>My Profile</button>
+					</Link>
 
-				<Link to="/bootcamps">
-					<button>Bootcamps</button>
-				</Link>
-			</div>
+					<Link to="/bootcamps">
+						<button>Bootcamps</button>
+					</Link>
+				</div>
 
-			<div className="sidebar-left">
-				<h3>--This is the sidebar -- Your Bootcamps</h3>
-			</div>
+				<div className="homepage-sidebar-left">
+					<h3>Your Bootcamps</h3>
+				</div>
 
 				<div className="homepage-content-right">
 					<div className="welcome-banner">
-						<h2>`Hello ${user?.fullName}`</h2>
+						<h2>Hello {user?.fullName}</h2>
 					</div>
 				
 					<section className="homepage-news-block">
@@ -63,6 +67,7 @@ function Homepage(props) {
 						</div>
 					</section>
 				</div>
+
 			</div>
 		</>
 	);
