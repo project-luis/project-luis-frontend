@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5005';
-
 function BootcampsPage() {
 	const [bootcampsArray, setBootcampsArray] = useState([]);
 
@@ -12,7 +10,7 @@ function BootcampsPage() {
 			const storedToken = localStorage.getItem('authToken');
 
 			axios
-				.get(`${API_URL}/bootcamps`, {
+				.get(`${import.meta.env.VITE_API_URL}/bootcamps`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {

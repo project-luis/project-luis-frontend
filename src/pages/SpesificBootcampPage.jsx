@@ -3,8 +3,6 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import EditBootcampPopup from './EditBootcampPopUp';
 
-const API_URL = 'http://localhost:5005';
-
 function SpesificBootcampPage() {
 	const [modulesArray, setModulesArray] = useState([]);
 	const [bootcamp, setBootcamp] = useState('');
@@ -14,7 +12,7 @@ function SpesificBootcampPage() {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
 			axios
-				.get(`${API_URL}/bootcamps/${bootcampId}`, {
+				.get(`${import.meta.env.VITE_API_URL}/bootcamps/${bootcampId}`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {
