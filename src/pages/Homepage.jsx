@@ -27,25 +27,6 @@ function Homepage(props) {
 
 	getAccessFromApi();
 
-
-	// does this work just to display the name in the welcome banner?
-	const [teacher, setTeacher] = useState({});
-	const { teacher_Id } = useParams;
-
-	const getTeacherInfo = () => {
-		axios
-			.get(`${import.meta.env.VITE_API_URL}/profile/${teacher_Id}`)
-			.then((response) => {
-				setTeacher(response.data);
-			})
-			.catch((error) => console.log(error));
-	}
-
-	useEffect(() => {
-		getTeacherInfo();
-	}, [])
-	// -------------------------- (end) name display in welcome banner
-
 	return (
 		<>
 			<div className="homepage-hamburger-menu">
@@ -64,16 +45,9 @@ function Homepage(props) {
 				</div>
 
 				<div className="homepage-content-right">
-					{/* display welcome banner */}
-					<div className="welcome-banner" key={teacher?._id}>
-						{teacher && (
-							<>
-								<h2>{`Welcome, ${teacher.email}!`}</h2>
-								<h2>Welcome, {teacher.fullName}!</h2>
-							</>
-						)}
+					<div className="welcome-banner">
+						<h2>{`Hello ${user?.fullName}!`}</h2>
 					</div>
-					{/* end */}
 				
 					<section className="homepage-news-block">
 						<h3>Bootcamp News</h3>
