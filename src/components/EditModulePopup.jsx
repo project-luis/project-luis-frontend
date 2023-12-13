@@ -72,10 +72,10 @@ function EditModulePopup(props) {
 	}, []);
 
 	return props.trigger ? (
-		<div className="edit-module-popup">
-			<div className="module-popup-inner">
+		<div className="edit-bootcamp-popup">
+			<div className="bootcamp-popup-inner">
 				<h1>Edit This Module</h1>
-				<form className="edit-module-form" onSubmit={handleSubmit}>
+				<form className="edit-bootcamp-form" onSubmit={handleSubmit}>
 					<label>Name of The module:</label>
 					<input
 						type="text"

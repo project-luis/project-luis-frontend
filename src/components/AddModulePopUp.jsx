@@ -72,9 +72,6 @@ function AddModulePopup(props) {
 						rows={5}
 					/>
 
-					{/* <label>Teacher:</label>
-					<input type="text" name="teacher" onChange={handleInputChange} /> */}
-
 					<label>Logo of the module:</label>
 					<input type="text" name="avatarUrl" onChange={handleInputChange} />
 
