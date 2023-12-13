@@ -6,20 +6,20 @@ import { AuthContext } from '../context/auth.context';
 import '../tempHomepageCss.css';
 
 function Homepage(props) {
-	const [popup, setPopup] = useState(false);
-
+	const [profile, setProfile] = useState('');
 	const { user } = useContext(AuthContext);
 
-	const getAccessFromApi = () => {
+	const getProfileData = () => {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
 
 			axios
-				.get(`${import.meta.env.VITE_API_URL}/index`, {
+				.get(`${import.meta.env.VITE_API_URL}/profile/${user?._id}`, {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {
-					console.log(`API: Connection success!: ${response}`);
+					const profile = response.data;
+					setProfile(profile);
 				})
 				.catch((error) => {
 					console.log(`API: Connection Failed: ${error}`);
@@ -27,7 +27,7 @@ function Homepage(props) {
 		}, []);
 	};
 
-	getAccessFromApi();
+	getProfileData();
 
 	return (
 		<>
@@ -48,7 +48,7 @@ function Homepage(props) {
 
 				<div className="homepage-content-right">
 					<div className="welcome-banner">
-						<h2>Hello</h2>
+						<h2>Hello {profile.fullName}</h2>
 					</div>
 
 					<section className="homepage-news-block">
