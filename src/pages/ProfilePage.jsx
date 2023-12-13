@@ -3,15 +3,17 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import EditProfilePopup from '../components/EditProfilePopup';
+import LogoutHandler from '../components/LogoutHandler';
 
 import '../tempProfileCss.css';
 
 function ProfilePage(props) {
+	const [userProfile, setUserProfile] = useState([]);
 	const { profileId } = useParams();
-	const [teacherProfile, setTeacherProfile] = useState([]);
+
 	const [editProfileButton, setEditProfileButton] = useState(false);
 
-	const getTeacherProfile = () => {
+	const getUserProfile = () => {
 		useEffect(() => {
 			const storedToken = localStorage.getItem('authToken');
 
@@ -20,14 +22,14 @@ function ProfilePage(props) {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				})
 				.then((response) => {
-					const userProfile = response.data;
-					setTeacherProfile(userProfile);
+					const userData = response.data;
+					setUserProfile(userData);
 				})
 				.catch((error) => console.log(error));
 		}, []);
 	};
 
-	getTeacherProfile();
+	getUserProfile();
 
 	return (
 		<div className="profile-page">
@@ -40,19 +42,18 @@ function ProfilePage(props) {
 			<div className="profile-page-full">
 				<div className="profile-page-sidebar">
 					<div className="profile-details-container">
-						(...profile details container -- <b>DELETE</b> this text later...)
 						<div className="profile-details-content">
 							<p>
 								<img
-									src={teacherProfile.avatarUrl}
 									className="profile-avatar"
+									src={userProfile.avatarUrl}
 								/>
 							</p>
-							<p>{teacherProfile.fullName}</p>
-							<p>Expertise: {teacherProfile.field}</p>
-							<p>Currently teaching: {teacherProfile.bootcamps}</p>
-							<p>Covering modules: {teacherProfile.modules}</p>
-							<p>Languages Spoken: {teacherProfile.languages}</p>
+							<p>{userProfile.fullName}</p>
+							<p>Expertise: {userProfile.field}</p>
+							<p>Currently teaching: {userProfile.bootcamps}</p>
+							<p>Covering modules: {userProfile.modules}</p>
+							<p>Languages Spoken: {userProfile.languages}</p>
 						</div>
 					</div>
 
@@ -61,13 +62,13 @@ function ProfilePage(props) {
 						<b>DELETE</b> this text later...)
 						<div className="profile-contacts-content">
 							<p>
-								<a href={teacherProfile.email}>Email</a>
+								<a href={userProfile.email}>Email</a>
 							</p>
 							<p>
-								<a href={teacherProfile.linkedInUrl}>LinkedIn</a>
+								<a href={userProfile.linkedInUrl}>LinkedIn</a>
 							</p>
 							<p>
-								<a href={teacherProfile.githubUrl}>GitHub</a>
+								<a href={userProfile.githubUrl}>GitHub</a>
 							</p>
 						</div>
 					</div>
@@ -116,10 +117,13 @@ function ProfilePage(props) {
 
 						<EditProfilePopup
 							trigger={editProfileButton}
-							setTrigger={setEditProfileButton}
-						></EditProfilePopup>
+							setTrigger={setEditProfileButton}>
+						</EditProfilePopup>
 
-						<button className="profile-buttons">Log Out</button>
+						<LogoutHandler>
+							<button></button>
+						</LogoutHandler>
+
 					</div>
 				</div>
 			</div>

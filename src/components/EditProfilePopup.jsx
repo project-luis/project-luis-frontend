@@ -5,200 +5,187 @@ import axios from 'axios';
 import '../tempProfileCss.css';
 
 function EditProfilePopup(props) {
-    const { profileId } = useParams();
+    const [userProfile, setUserProfile] = useState({
+        fullName: "",
+        email: "",
+        avatarUrl: "",
+        languages: "",
+        linkedInUrl: "",
+        githubUrl: "",
+        field: "",
+        bootcamps: "",
+        modules: "",
+    });
 
     const [errorMessage, setErrorMessage] = useState("");
+    const { profileId } = useParams();
 
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [avatarUrl, setAvatarUrl] = useState("");
-    const [languages, setLanguages] = useState("");
-    const [linkedInUrl, setLinkedInUrl] = useState("");
-    const [githubUrl, setGithubUrl] = useState("");
-    const [field, setField] = useState("");
-    const [bootcamps, setBootcamps] = useState("");
-    const [modules, setModules] = useState("");
-
-    const handleFullName = (e) => {
-        setFullName(e.target.value);
-    };
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    };
-    const handleAvatarUrl = (e) => {
-        setAvatarUrl(e.target.value);
-    };
-    const handleLanguages = (e) => {
-        setLanguages(e.target.value);
-    };
-    const handleLinkedInUrl = (e) => {
-        setLinkedInUrl(e.target.value);
-    };
-    const handleGithubUrl = (e) => {
-        setGithubUrl(e.target.value);
-    };
-    const handleField = (e) => {
-        setField(e.target.value);
-    };
-    const handleBootcamps = (e) => {
-        setBootcamps(e.target.value);
-    };
-    const handleModules = (e) => {
-        setModules(e.target.value);
+    const handleEditData = (e) => {
+        const { name, value } = e.target;
+        setUserProfile((previous) => ({
+            ...previous,
+            [name]: value,
+        }));
     };
 
-    const getData = () => {
-        useEffect(() => {
-            const storedToken = localStorage.getItem("authToken");
-            axios
-                .get(`${import.meta.env.VITE_API_URL}/profile/${profileId}`, {
-                    headers: { Authorization: `Bearer ${storedToken}` }
-                })
-                .then((response) => {
-                    setFullName(response.data.fullName);
-                    setEmail(response.data.email);
-                    setAvatarUrl(response.data.avatarUrl);
-                    setLanguages(response.data.languages);
-                    setLinkedInUrl(response.data.linkedInUrl);
-                    setGithubUrl(response.data.githubUrl);
-                    setField(response.data.field);
-                    setBootcamps(response.data.bootcamps);
-                    setModules(response.data.modules);
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-        }, []);
-    };
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const getUserData = () => {
+        const storedToken = localStorage.getItem("authToken");
 
         const requestBody = {
-            fullName: fullName,
-            email: email,
-            avatarUrl: avatarUrl,
-            languages: languages,
-            linkedInUrl: linkedInUrl,
-            githubUrl: githubUrl,
-            field: field,
-            bootcamps: bootcamps,
-            modules: modules,
+            fullName: userProfile.fullName,
+            email: userProfile.email,
+            avatarUrl: userProfile.avatarUrl,
+            languages: userProfile.languages,
+            linkedInUrl: userProfile.linkedInUrl,
+            githubUrl: userProfile.githubUrl,
+            field: userProfile.field,
+            bootcamps: userProfile.bootcamps,
+            modules: userProfile.modules,
         };
+
+        axios
+            .get(`${import.meta.env.VITE_API_URL}/profile/${profileId}`, requestBody,
+            {
+                headers: { Authorization: `Bearer ${storedToken}` }
+            })
+            .then((response) => {
+                const userData = Array.isArray(response.data)
+                    ? response.data[0]
+                    : response.data;
+                setUserProfile(userData);
+                console.log("Successful edit");
+                console.log("See updated information:", userData);
+            })
+            .catch((error) => {
+                console.log(`Error: ${error}`);
+            });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
         const storedToken = localStorage.getItem("authToken");
 
         axios
-            .put(`${import.meta.env.VITE_API_URL}/profile/${profileId}`, requestBody, {
-                headers: { Authorization: `Bearer ${storedToken}` }
-            })
+            .put(`${import.meta.env.VITE_API_URL}/profile/${profileId}`, userProfile,
+                {
+                    headers: { Authorization: `Bearer ${storedToken}` }
+                }
+            )
             .then((response) => {
-                console.log("Profile successfully edited");
-                props.setTrigger(false);                
+                console.log("Successful Edit:", response.data);
+                setUserProfile(response.data);
+                props.setTrigger(false);
             })
             .catch((error) => {
-                console.log("Profile edit failed");
-                console.log(error);
-                const errorDescripton = error.response.data.message;
+                console.log("Failed Edit:", error);
+                const errorDescripton = error.response.data.message || "Edit Failure";
                 setErrorMessage(errorDescripton);
-            })
+            });
     };
 
-    getData();
+    useEffect(() => {
+        getUserData();
+    }, [profileId]);
+
+    const handleReload = () => {
+        getUserData();
+    };
 
     return (props.trigger) ? (
         <div className="edit-profile-popup">
             <div className="edit-profile-popup-inner">
 
                 <form className="edit-profile-form" onSubmit={handleSubmit}>
-                        
-                        <label>Your Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={fullName}
-                            onChange={handleFullName} />
 
-                        <label>Email</label>
-                        <input
-                            type="text"
-                            name="email"
-                            value={email}
-                            onChange={handleEmail}
-                        />
+                    <label>Your Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={userProfile.fullName}
+                        onChange={handleEditData} />
 
-                        <label>Expertise</label>
-                        <input
-                            type="text"
-                            name="expertise"
-                            value={field}
-                            onChange={handleField}
-                        />
+                    <label>Email</label>
+                    <input
+                        type="text"
+                        name="email"
+                        value={userProfile.email}
+                        onChange={handleEditData}
+                    />
 
-                        <label>Languages</label>
-                        <input
-                            type="text"
-                            name="languages"
-                            value={languages}
-                            onChange={handleLanguages}
-                        />
+                    <label>Expertise</label>
+                    <input
+                        type="text"
+                        name="expertise"
+                        value={userProfile.field}
+                        onChange={handleEditData}
+                    />
 
-                        <label>LinkedIn Profile</label>
-                        <input
-                            type="text"
-                            name="linkedin-profile"
-                            value={linkedInUrl}
-                            onChange={handleLinkedInUrl}
-                        />
+                    <label>Languages</label>
+                    <input
+                        type="text"
+                        name="languages"
+                        value={userProfile.languages}
+                        onChange={handleEditData}
+                    />
 
-                        <label>GitHub Profile</label>
-                        <input
-                            type="text"
-                            name="github-profile"
-                            value={githubUrl}
-                            onChange={handleGithubUrl}
-                        />
+                    <label>LinkedIn Profile</label>
+                    <input
+                        type="text"
+                        name="linkedin-profile"
+                        value={userProfile.linkedInUrl}
+                        onChange={handleEditData}
+                    />
 
-                        <label>Your Bootcamps</label>
-                        <input
-                            type="text"
-                            name="bootcamps"
-                            value={bootcamps}
-                            onChange={handleBootcamps}
-                        />
+                    <label>GitHub Profile</label>
+                    <input
+                        type="text"
+                        name="github-profile"
+                        value={userProfile.githubUrl}
+                        onChange={handleEditData}
+                    />
 
-                        <label>Your Modules</label>
-                        <input
-                            type="text"
-                            name="modules"
-                            value={modules}
-                            onChange={handleModules}
-                        />
+                    <label>Your Bootcamps</label>
+                    <input
+                        type="text"
+                        name="bootcamps"
+                        value={userProfile.bootcamps}
+                        onChange={handleEditData}
+                    />
 
-                        <label>Upload a Profile Image</label>
-                        <input
-                            type="url"
-                            name="profile-image"
-                            value={avatarUrl}
-                            onChange={setAvatarUrl}
-                        />
+                    <label>Your Modules</label>
+                    <input
+                        type="text"
+                        name="modules"
+                        value={userProfile.modules}
+                        onChange={handleEditData}
+                    />
 
-                        <button type="submit">Submit</button>
+                    <label>Upload a Profile Image</label>
+                    <input
+                        type="url"
+                        name="profile-image"
+                        value={userProfile.avatarUrl}
+                        onChange={handleEditData}
+                    />
 
-                    </form>
-
-                    {errorMessage && <p className="error-message">{errorMessage}</p>}
-                    
-                
-                    <button className="edit-profile-popup-close-btn" onClick={() => props.setTrigger(false)}>
-                        Close
+                    <button type="submit" onClick={handleReload}>
+                        Submit
                     </button>
 
-                    {props.children}
+                </form>
+
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+                <button className="edit-profile-popup-close-btn" onClick={() => props.setTrigger(false)}>
+                    Close
+                </button>
+
+                {props.children}
 
             </div>
-		</div>
-	) : "";
+        </div>
+    ) : "";
 }
 
 export default EditProfilePopup;
