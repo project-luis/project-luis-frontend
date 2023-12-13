@@ -7,23 +7,24 @@ function SpesificModulePage() {
 	const [module, setModule] = useState('');
 	const { moduleId } = useParams();
 	const getModuleFromApi = () => {
-		useEffect(() => {
-			const storedToken = localStorage.getItem('authToken');
+		const storedToken = localStorage.getItem('authToken');
 
-			axios
-				.get(`${import.meta.env.VITE_API_URL}/modules/${moduleId}`, {
-					headers: { Authorization: `Bearer ${storedToken}` },
-				})
-				.then((response) => {
-					setModule(response.data);
-					setbootcampsArray(response.data.bootcamps);
-					console.log(`API: Connection success: ${response}`);
-				})
-				.catch((error) => {
-					console.log(`API: Connection Failed: ${error}`);
-				});
-		}, []);
+		axios
+			.get(`${import.meta.env.VITE_API_URL}/modules/${moduleId}`, {
+				headers: { Authorization: `Bearer ${storedToken}` },
+			})
+			.then((response) => {
+				setModule(response.data);
+				setbootcampsArray(response.data.bootcamps);
+				console.log(`API: Connection success: ${response}`);
+			})
+			.catch((error) => {
+				console.log(`API: Connection Failed: ${error}`);
+			});
 	};
+	useEffect(() => {
+		getModuleFromApi();
+	}, []);
 
 	const deleteModule = () => {
 		const storedToken = localStorage.getItem('authToken');

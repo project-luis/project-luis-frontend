@@ -40,8 +40,6 @@ function EditBootcampPopup(props) {
 					? response.data[0]
 					: response.data;
 				setBootcamp(bootcampData);
-				console.log(`API: Connection success: ${response}`);
-				console.log('Updated bootcamp state:', bootcampData);
 			})
 			.catch((error) => {
 				console.log(`API: Connection Failed: ${error}`);
@@ -63,6 +61,7 @@ function EditBootcampPopup(props) {
 			)
 			.then((response) => {
 				console.log('Edit successful', response.data);
+				props.getBootcampFromApi();
 				setBootcamp(response.data);
 				props.setTrigger(false);
 			})
@@ -76,11 +75,7 @@ function EditBootcampPopup(props) {
 
 	useEffect(() => {
 		getBootcampFromApi();
-	}, [bootcampId]);
-
-	const handleRefresh = () => {
-		getBootcampFromApi();
-	};
+	}, []);
 
 	return props.trigger ? (
 		<div className="edit-bootcamp-popup">
@@ -185,9 +180,7 @@ function EditBootcampPopup(props) {
 						onChange={handleInputChange}
 					/>
 
-					<button type="submit" onClick={handleRefresh}>
-						Submit
-					</button>
+					<button type="submit">Submit</button>
 				</form>
 				{errorMessage && <p className="error-message">{errorMessage}</p>}
 			</div>

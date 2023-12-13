@@ -8,24 +8,23 @@ function BootcampsPage() {
 	const [addButtonPopup, setAddButtonPopup] = useState(false);
 
 	const getBootcampsFromApi = () => {
-		useEffect(() => {
-			const storedToken = localStorage.getItem('authToken');
+		const storedToken = localStorage.getItem('authToken');
 
-			axios
-				.get(`${import.meta.env.VITE_API_URL}/bootcamps`, {
-					headers: { Authorization: `Bearer ${storedToken}` },
-				})
-				.then((response) => {
-					const oneBootcamp = response.data;
-					setBootcampsArray(oneBootcamp);
-				})
-				.catch((error) => {
-					console.log(`API: Connection Failed: ${error}`);
-				});
-		}, []);
+		axios
+			.get(`${import.meta.env.VITE_API_URL}/bootcamps`, {
+				headers: { Authorization: `Bearer ${storedToken}` },
+			})
+			.then((response) => {
+				const oneBootcamp = response.data;
+				setBootcampsArray(oneBootcamp);
+			})
+			.catch((error) => {
+				console.log(`API: Connection Failed: ${error}`);
+			});
 	};
-
-	getBootcampsFromApi();
+	useEffect(() => {
+		getBootcampsFromApi();
+	}, []);
 
 	return (
 		<div className="bootcamps">
@@ -67,6 +66,7 @@ function BootcampsPage() {
 			<AddBootcampPopup
 				trigger={addButtonPopup}
 				setTrigger={setAddButtonPopup}
+				getBootcampsFromApi={getBootcampsFromApi}
 			></AddBootcampPopup>
 			<Link to="/index">
 				<button>(TEMP) Home</button>

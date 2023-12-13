@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
@@ -8,8 +8,15 @@ function LoginPage(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState(undefined);
-
+	const { isAuthenticated } = useContext(AuthContext);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		console.log('isAuthenticated:', isAuthenticated);
+		if (isAuthenticated) {
+			navigate('/index');
+		}
+	}, [isAuthenticated, navigate]);
 
 	const { storeToken, authenticateUser } = useContext(AuthContext);
 
