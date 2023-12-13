@@ -34,7 +34,7 @@ function AddModulePopup(props) {
 
 			const storedToken = localStorage.getItem('authToken');
 			const response = await axios.post(
-				`${import.meta.env.VITE_API_URL}/bootcamps/${bootcampId}`,
+				`${import.meta.env.VITE_API_URL}/bootcamps/${bootcampId}/module`,
 				module,
 				{ headers: { Authorization: `Bearer ${storedToken}` } }
 			);

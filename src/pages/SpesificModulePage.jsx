@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import EditModulePopup from '../components/EditModulePopup';
 
-function SpesificModulePage() {
+function SpesificModulePage(props) {
 	const [bootcampsArray, setbootcampsArray] = useState([]);
+	const [editModuleButtonPopup, setEditModuleButtonPopup] = useState(false);
 	const [module, setModule] = useState('');
 	const { moduleId } = useParams();
 	const getModuleFromApi = () => {
@@ -22,6 +24,23 @@ function SpesificModulePage() {
 				console.log(`API: Connection Failed: ${error}`);
 			});
 	};
+
+	const getBootcampsFromApi = () => {
+		const storedToken = localStorage.getItem('authToken');
+
+		axios
+			.get(`${import.meta.env.VITE_API_URL}/bootcamps`, {
+				headers: { Authorization: `Bearer ${storedToken}` },
+			})
+			.then((response) => {
+				setbootcampsArray(response.data);
+				console.log(`API: Connection success: ${response}`);
+			})
+			.catch((error) => {
+				console.log(`API: Connection Failed: ${error}`);
+			});
+	};
+
 	useEffect(() => {
 		getModuleFromApi();
 	}, []);
@@ -34,11 +53,10 @@ function SpesificModulePage() {
 			})
 			.then(() => {
 				navigate(`/bootcamps`);
+				getBootcampsFromApi();
 			})
 			.catch((err) => console.log(err));
 	};
-
-	getModuleFromApi();
 
 	return (
 		<div className="spesificModule">
@@ -49,9 +67,6 @@ function SpesificModulePage() {
 						This will be the list of bootcamps that related with this module
 					</ul>
 				</li>
-				<button className="add-module-button" to={`/index`}>
-					Add Module
-				</button>
 			</section>
 			<section className="module-description">
 				<h1>
@@ -61,7 +76,19 @@ function SpesificModulePage() {
 				<p>{module.description}</p>
 			</section>
 			<section className="module-buttons">
-				<button>Edit Module</button>
+				<button
+					onClick={() => {
+						setEditModuleButtonPopup(true);
+					}}
+				>
+					Edit Module
+				</button>
+				<EditModulePopup
+					trigger={editModuleButtonPopup}
+					setTrigger={setEditModuleButtonPopup}
+					getBootcampsFromApi={getBootcampsFromApi}
+					getModuleFromApi={getModuleFromApi}
+				></EditModulePopup>
 				<Link to={'/bootcamps'}>
 					<button onClick={deleteModule}>Delete Module</button>
 				</Link>

@@ -43,7 +43,6 @@ function SpesificBootcampPage() {
 			})
 			.catch((err) => console.log(err));
 	};
-
 	return (
 		<div className="spesificBootcamp">
 			<section className="bootcamp-modules-list">
@@ -74,7 +73,7 @@ function SpesificBootcampPage() {
 			></AddmodulePopup>
 			<section className="description-and-teacher">
 				<h1>{bootcamp.name}</h1>
-				{/* <p>Teacher: {bootcamp.teacher.fullName}</p> */}
+				{bootcamp.teacher?.fullName}
 				<p>{bootcamp.description}</p>
 			</section>
 			<section className="bootcamp-buttons">

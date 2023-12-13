@@ -70,10 +70,6 @@ function AddBootcampPopup(props) {
 						onChange={handleInputChange}
 						rows={5}
 					/>
-
-					{/* <label>Teacher:</label>
-					<input type="text" name="teacher" onChange={handleInputChange} /> */}
-
 					<label>Logo of the Bootcamp:</label>
 					<input type="text" name="avatarUrl" onChange={handleInputChange} />
 
