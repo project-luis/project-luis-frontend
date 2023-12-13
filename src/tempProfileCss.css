@@ -1,58 +1,41 @@
+body {
+    width: 100%;
+}
+
 .profile-page-head {
-    display: flex;
-    justify-content: space-between;
-}
-
-.nav-home {
     margin: 20px;
     display: flex;
     align-items: flex-start;
-}
-
-.profile-details-container, .profile-contacts-container {
-    border: 1px solid ivory;
-    border-radius: 20px;
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.profile-page-sidebar {
-    min-width: 20%;
-    margin: 20px;
+    justify-content: space-around;
 }
 
 .profile-avatar {
     max-width: 150px;
 }
 
-.profile-about-text {
+.profile-detail-card-container,
+.profile-contact-card-container,
+.profile-about-card-container {
     border: 1px solid ivory;
     border-radius: 20px;
-    padding: 10px;
-    width: 80%;
+    padding: 20px;
+    margin: 20px;
     text-align: start;
-}
-
-.profile-buttons {
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 20%;
-}
-
-.profile-buttons-container {
-    width: 80%;
-}
-
-.profile-page-right-side {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+}
+
+.profile-contact-card-content {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .profile-page-full {
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -60,6 +43,8 @@
 h2 {
     color: orange;
 }
+
+/* ---- */
 
 .bootcamp {
     border: 1px solid gray;

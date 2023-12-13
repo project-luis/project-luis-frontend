@@ -13,6 +13,7 @@ function EditProfilePopup(props) {
         linkedInUrl: "",
         githubUrl: "",
         field: "",
+        aboutUser: "",
         bootcamps: "",
         modules: "",
     });
@@ -31,20 +32,8 @@ function EditProfilePopup(props) {
     const getUserData = () => {
         const storedToken = localStorage.getItem("authToken");
 
-        const requestBody = {
-            fullName: userProfile.fullName,
-            email: userProfile.email,
-            avatarUrl: userProfile.avatarUrl,
-            languages: userProfile.languages,
-            linkedInUrl: userProfile.linkedInUrl,
-            githubUrl: userProfile.githubUrl,
-            field: userProfile.field,
-            bootcamps: userProfile.bootcamps,
-            modules: userProfile.modules,
-        };
-
         axios
-            .get(`${import.meta.env.VITE_API_URL}/profile/${profileId}`, requestBody,
+            .get(`${import.meta.env.VITE_API_URL}/profile/${profileId}`,
             {
                 headers: { Authorization: `Bearer ${storedToken}` }
             })
@@ -75,22 +64,19 @@ function EditProfilePopup(props) {
             .then((response) => {
                 console.log("Successful Edit:", response.data);
                 setUserProfile(response.data);
+                getUserData();
                 props.setTrigger(false);
             })
             .catch((error) => {
                 console.log("Failed Edit:", error);
-                const errorDescripton = error.response.data.message || "Edit Failure";
+                const errorDescripton = error.response?.data?.message || "Edit Failure";
                 setErrorMessage(errorDescripton);
             });
     };
 
     useEffect(() => {
         getUserData();
-    }, [profileId]);
-
-    const handleReload = () => {
-        getUserData();
-    };
+    }, []);
 
     return (props.trigger) ? (
         <div className="edit-profile-popup">
@@ -101,47 +87,55 @@ function EditProfilePopup(props) {
                     <label>Your Name</label>
                     <input
                         type="text"
-                        name="name"
-                        value={userProfile.fullName}
+                        name="fullName"
+                        value={userProfile.fullName || ""}
                         onChange={handleEditData} />
 
                     <label>Email</label>
                     <input
                         type="text"
                         name="email"
-                        value={userProfile.email}
+                        value={userProfile.email || ""}
                         onChange={handleEditData}
                     />
 
                     <label>Expertise</label>
                     <input
                         type="text"
-                        name="expertise"
-                        value={userProfile.field}
+                        name="field"
+                        value={userProfile.field || ""}
                         onChange={handleEditData}
                     />
 
+                    <label>About Me</label>
+                    <textarea
+                        type="text"
+                        name="aboutUser"
+                        value={userProfile.aboutUser || ""}
+                        onChange={handleEditData}>
+                    </textarea>
+                    
                     <label>Languages</label>
                     <input
                         type="text"
                         name="languages"
-                        value={userProfile.languages}
+                        value={userProfile.languages || ""}
                         onChange={handleEditData}
                     />
 
                     <label>LinkedIn Profile</label>
                     <input
                         type="text"
-                        name="linkedin-profile"
-                        value={userProfile.linkedInUrl}
+                        name="linkedInUrl"
+                        value={userProfile.linkedInUrl || ""}
                         onChange={handleEditData}
                     />
 
                     <label>GitHub Profile</label>
                     <input
                         type="text"
-                        name="github-profile"
-                        value={userProfile.githubUrl}
+                        name="githubUrl"
+                        value={userProfile.githubUrl || ""}
                         onChange={handleEditData}
                     />
 
@@ -149,7 +143,7 @@ function EditProfilePopup(props) {
                     <input
                         type="text"
                         name="bootcamps"
-                        value={userProfile.bootcamps}
+                        value={userProfile.bootcamps || ""}
                         onChange={handleEditData}
                     />
 
@@ -157,19 +151,19 @@ function EditProfilePopup(props) {
                     <input
                         type="text"
                         name="modules"
-                        value={userProfile.modules}
+                        value={userProfile.modules || ""}
                         onChange={handleEditData}
                     />
 
                     <label>Upload a Profile Image</label>
                     <input
                         type="url"
-                        name="profile-image"
-                        value={userProfile.avatarUrl}
+                        name="avatarUrl"
+                        value={userProfile.avatarUrl || ""}
                         onChange={handleEditData}
                     />
 
-                    <button type="submit" onClick={handleReload}>
+                    <button type="submit" onClick={getUserData}>
                         Submit
                     </button>
 
@@ -185,7 +179,7 @@ function EditProfilePopup(props) {
 
             </div>
         </div>
-    ) : "";
+    ) : ("");
 }
 
 export default EditProfilePopup;
