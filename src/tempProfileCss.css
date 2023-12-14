@@ -161,14 +161,16 @@ h2 {
 }
 
 .bootcamp-popup-inner {
+    border: 2px grey solid;
     background-color: #242424; /* background color of popup itself */
     display: contents;
-    overflow-y: scroll;
+    overflow-y:auto;
     display: flex;
     flex-direction: column;
     padding: 30px;
-    width: 100%;
+    width: 70%;
     max-width: 50%;
+    height: 65%;
 }
 
 .edit-bootcamp-form {
