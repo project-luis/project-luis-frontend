@@ -33,7 +33,7 @@ function Navbar() {
     return (
         <div className="nav-container">
 
-            <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Question_mark.png/475px-Question_mark.png" />
+            <img className="logo" src="https://i.imgur.com/RfbGfPq.png" />
 
             <Link to="/index">
                 <button className="nav-btn">Home</button>

@@ -72,7 +72,7 @@ function BootcampsPage() {
 						setAddButtonPopup(true);
 					}}
 				>
-					Add Bootcamp
+					+
 				</button>
 				<AddBootcampPopup
 					trigger={addButtonPopup}
