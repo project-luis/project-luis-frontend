@@ -49,16 +49,6 @@ function GetAllModules(props) {
 					headers: { Authorization: `Bearer ${storedToken}` },
 				}
 			);
-			// const response = await axios.put(
-			// 	// Use bootcampId and moduleId consistently here
-			// 	`${
-			// 		import.meta.env.VITE_API_URL
-			// 	}/modules/${moduleId}/associate/${bootcampId}`,
-			// 	{},
-			// 	{
-			// 		headers: { Authorization: `Bearer ${storedToken}` },
-			// 	}
-			// );
 			console.log(`Module added to bootcamp: ${response.data}`);
 			// Refresh the list of bootcamps to reflect the changes
 			getBootcampsFromAPI();
