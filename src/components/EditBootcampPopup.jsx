@@ -99,14 +99,6 @@ function EditBootcampPopup(props) {
 						rows={5}
 					/>
 
-					<label>Teacher:</label>
-					<input
-						type="text"
-						name="teacher"
-						value={bootcamp.teacher || ''}
-						onChange={handleInputChange}
-					/>
-
 					<label>Logo of the Bootcamp:</label>
 					<input
 						type="text"
@@ -123,7 +115,7 @@ function EditBootcampPopup(props) {
 						onChange={handleInputChange}
 					/>
 
-					<label>Bootcamp Code</label>
+					{/* <label>Bootcamp Code</label>
 					<input
 						type="text"
 						name="bootcampCode"
@@ -169,7 +161,7 @@ function EditBootcampPopup(props) {
 						name="daysofWeek"
 						value={bootcamp.daysOfWeek || ''}
 						onChange={handleInputChange}
-					/>
+					/> */}
 
 					<button type="submit">Submit</button>
 				</form>
