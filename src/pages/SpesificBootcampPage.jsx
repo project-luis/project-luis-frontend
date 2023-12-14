@@ -31,23 +31,23 @@ function SpesificBootcampPage() {
 			});
 	};
 
-	// const getProfileFromApi = () => {
-	// 	const storedToken = localStorage.getItem('authToken');
-	// 	axios
-	// 		.get(`${import.meta.env.VITE_API_URL}/profile/${user?._id}`, {
-	// 			headers: { Authorization: `Bearer ${storedToken}` },
-	// 		})
-	// 		.then((response) => {
-	// 			setProfile(response.data);
-	// 			console.log(`API: User connection success: ${response}`);
-	// 		})
-	// 		.catch((error) => {
-	// 			console.log(`API: Connection Failed: ${error}`);
-	// 		});
-	// };
+	const getProfileFromApi = () => {
+		const storedToken = localStorage.getItem('authToken');
+		axios
+			.get(`${import.meta.env.VITE_API_URL}/profile/${user?._id}`, {
+				headers: { Authorization: `Bearer ${storedToken}` },
+			})
+			.then((response) => {
+				setProfile(response.data);
+				console.log(`API: User connection success: ${response}`);
+			})
+			.catch((error) => {
+				console.log(`API: Connection Failed: ${error}`);
+			});
+	};
 	useEffect(() => {
 		getBootcampFromApi();
-		// getProfileFromApi();
+		getProfileFromApi(profile);
 	}, []);
 
 	const deleteBootcamp = () => {
@@ -91,7 +91,7 @@ function SpesificBootcampPage() {
 			></AddmodulePopup>
 			<section className="description-and-teacher">
 				<h1>{bootcamp.name}</h1>
-				{/* <p>{profile?.fullName}</p> */}
+				<p>{profile?.fullName}</p>
 				<p>{bootcamp.description}</p>
 			</section>
 			<section className="bootcamp-buttons">
