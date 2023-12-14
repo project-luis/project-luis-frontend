@@ -45,7 +45,7 @@ function Homepage(props) {
 					</div>
 
 					<section className="homepage-news-block">
-						<h2>Bootcamp News</h2>
+						<h2>Tech News</h2>
 						<div className="news">
 							<img
 								src="https://images.idgesg.net/images/article/2023/03/shutterstock_2231537301-100938356-large.jpg?auto=webp&quality=85,70"
