@@ -5,7 +5,7 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import AddBootcampPopup from '../components/AddBootcampPopup';
 
-import "../tempProfileCss.css";
+import '../tempProfileCss.css';
 
 function BootcampsPage() {
 	const [bootcampsArray, setBootcampsArray] = useState([]);
@@ -58,7 +58,7 @@ function BootcampsPage() {
 															className="bootcamps-module-logo"
 															src={module.avatarUrl}
 														/>
-														{module.name}
+														<p>{module.name}</p>
 													</li>
 												</Link>
 											</div>
@@ -83,7 +83,6 @@ function BootcampsPage() {
 					setTrigger={setAddButtonPopup}
 					getBootcampsFromApi={getBootcampsFromApi}
 				></AddBootcampPopup>
-
 			</div>
 		</>
 	);
