@@ -5,6 +5,8 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import AddBootcampPopup from '../components/AddBootcampPopup';
 
+import "../tempProfileCss.css";
+
 function BootcampsPage() {
 	const [bootcampsArray, setBootcampsArray] = useState([]);
 	const [addButtonPopup, setAddButtonPopup] = useState(false);
@@ -38,26 +40,28 @@ function BootcampsPage() {
 							<div key={i} className="bootcamp">
 								<Link to={`/bootcamps/${bootcamp._id}`}>
 									<h2>
-									<img
-										className="bootcamps-module-logo"
-										src={bootcamp.avatarUrl}
-									/>
-									{bootcamp.name}
-								</h2>
+										<img
+											className="bootcamps-module-logo"
+											src={bootcamp.avatarUrl}
+										/>
+										{bootcamp.name}
+									</h2>
 								</Link>
 								<p>{bootcamp.description}</p>
 								<ul className="modules-list">
 									{[...bootcamp.modules].map((module, i) => {
 										return (
-											<Link key={i} to={`/modules/${module._id}`}>
-												<li className="single-module">
-													<img
-														className="bootcamps-module-logo"
-														src={module.avatarUrl}
-													/>
-													{module.name}
-												</li>
-											</Link>
+											<div className="module-logo-tester">
+												<Link key={i} to={`/modules/${module._id}`}>
+													<li className="single-module">
+														<img
+															className="bootcamps-module-logo"
+															src={module.avatarUrl}
+														/>
+														{module.name}
+													</li>
+												</Link>
+											</div>
 										);
 									})}
 								</ul>
@@ -68,11 +72,11 @@ function BootcampsPage() {
 
 				<button
 					className="add-bootcamp-button"
-				onClick={() => {
+					onClick={() => {
 						setAddButtonPopup(true);
 					}}
 				>
-					Add Bootcamp
+					+
 				</button>
 				<AddBootcampPopup
 					trigger={addButtonPopup}
