@@ -54,13 +54,12 @@ function AddModulePopup(props) {
 	};
 
 	return props.trigger ? (
-		<div className="edit-module-popup">
-			<div className="module-popup-inner">
-				<h3>Choose Existing Module</h3>
-				<GetAllModules />
+		<div className="edit-bootcamp-popup">
+			<div className="bootcamp-popup-inner">
+				<GetAllModules bootcampId={bootcampId} />
 				<h3>Add New module</h3>
 				<form
-					className="edit-module-form"
+					className="edit-bootcamp-form"
 					onSubmit={handleSubmit}
 					method="POST"
 				>
