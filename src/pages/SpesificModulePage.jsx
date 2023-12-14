@@ -8,6 +8,7 @@ function SpesificModulePage(props) {
 	const [editModuleButtonPopup, setEditModuleButtonPopup] = useState(false);
 	const [module, setModule] = useState('');
 	const { moduleId } = useParams();
+
 	const getModuleFromApi = () => {
 		const storedToken = localStorage.getItem('authToken');
 
@@ -60,14 +61,14 @@ function SpesificModulePage(props) {
 
 	return (
 		<div className="spesificModule">
-			<section className="module-modules-list">
+			{/* <section className="module-modules-list">
 				<h3>Bootcamps</h3>
 				<li>
 					<ul>
 						This will be the list of bootcamps that related with this module
 					</ul>
 				</li>
-			</section>
+			</section> */}
 			<section className="module-description">
 				<h1>
 					<img className="module-avatar" src={module.avatarUrl} />

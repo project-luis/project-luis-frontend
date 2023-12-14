@@ -171,15 +171,6 @@ function EditBootcampPopup(props) {
 						onChange={handleInputChange}
 					/>
 
-					<label>Which Modules are included in this Bootcamp? </label>
-					<input
-						type="text"
-						value={
-							bootcamp.modules.map((module) => module.name).join(', ') || ''
-						}
-						onChange={handleInputChange}
-					/>
-
 					<button type="submit">Submit</button>
 				</form>
 				{errorMessage && <p className="error-message">{errorMessage}</p>}

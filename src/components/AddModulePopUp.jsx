@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import GetAllModules from './GetAllModules';
 
 function AddModulePopup(props) {
 	const { bootcampId } = useParams();
@@ -53,11 +54,12 @@ function AddModulePopup(props) {
 	};
 
 	return props.trigger ? (
-		<div className="edit-module-popup">
-			<div className="module-popup-inner">
-				<h1>Add New module</h1>
+		<div className="edit-bootcamp-popup">
+			<div className="bootcamp-popup-inner">
+				<GetAllModules bootcampId={bootcampId} />
+				<h3>Add New module</h3>
 				<form
-					className="edit-module-form"
+					className="edit-bootcamp-form"
 					onSubmit={handleSubmit}
 					method="POST"
 				>
@@ -71,9 +73,6 @@ function AddModulePopup(props) {
 						onChange={handleInputChange}
 						rows={5}
 					/>
-
-					{/* <label>Teacher:</label>
-					<input type="text" name="teacher" onChange={handleInputChange} /> */}
 
 					<label>Logo of the module:</label>
 					<input type="text" name="avatarUrl" onChange={handleInputChange} />

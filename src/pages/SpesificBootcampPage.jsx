@@ -1,15 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import EditBootcampPopup from '../components/EditBootcampPopup';
 import AddmodulePopup from '../components/AddModulePopUp';
+import { AuthContext } from '../context/auth.context';
 
 function SpesificBootcampPage() {
 	const [modulesArray, setModulesArray] = useState([]);
 	const [addButtonPopup, setAddButtonPopup] = useState();
 	const [bootcamp, setBootcamp] = useState('');
 	const [editButtonPopup, setEditButtonPopup] = useState(false);
+	const [profile, setProfile] = useState('');
 	const { bootcampId } = useParams();
+	const { user } = useContext(AuthContext);
 
 	const getBootcampFromApi = () => {
 		const storedToken = localStorage.getItem('authToken');
@@ -28,8 +31,23 @@ function SpesificBootcampPage() {
 			});
 	};
 
+	// const getProfileFromApi = () => {
+	// 	const storedToken = localStorage.getItem('authToken');
+	// 	axios
+	// 		.get(`${import.meta.env.VITE_API_URL}/profile/${user?._id}`, {
+	// 			headers: { Authorization: `Bearer ${storedToken}` },
+	// 		})
+	// 		.then((response) => {
+	// 			setProfile(response.data);
+	// 			console.log(`API: User connection success: ${response}`);
+	// 		})
+	// 		.catch((error) => {
+	// 			console.log(`API: Connection Failed: ${error}`);
+	// 		});
+	// };
 	useEffect(() => {
 		getBootcampFromApi();
+		// getProfileFromApi();
 	}, []);
 
 	const deleteBootcamp = () => {
@@ -73,7 +91,7 @@ function SpesificBootcampPage() {
 			></AddmodulePopup>
 			<section className="description-and-teacher">
 				<h1>{bootcamp.name}</h1>
-				{bootcamp.teacher?.fullName}
+				{/* <p>{profile?.fullName}</p> */}
 				<p>{bootcamp.description}</p>
 			</section>
 			<section className="bootcamp-buttons">
