@@ -90,8 +90,8 @@ function SpesificBootcampPage() {
 				getBootcampFromApi={getBootcampFromApi}
 			></AddmodulePopup>
 			<section className="description-and-teacher">
-				<h1>{bootcamp.name}</h1>
-				{/* <p>{profile?.fullName}</p> */}
+				<h1>Teacher: {bootcamp.name}</h1>
+				<p>{profile?.fullName}</p>
 				<p>{bootcamp.description}</p>
 			</section>
 			<section className="bootcamp-buttons">
