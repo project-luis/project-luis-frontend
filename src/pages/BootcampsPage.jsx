@@ -37,7 +37,13 @@ function BootcampsPage() {
 						return (
 							<div key={i} className="bootcamp">
 								<Link to={`/bootcamps/${bootcamp._id}`}>
-									<h2>{bootcamp.name}</h2>
+									<h2>
+									<img
+										className="bootcamps-module-logo"
+										src={bootcamp.avatarUrl}
+									/>
+									{bootcamp.name}
+								</h2>
 								</Link>
 								<p>{bootcamp.description}</p>
 								<ul className="modules-list">
@@ -61,7 +67,8 @@ function BootcampsPage() {
 				</section>
 
 				<button
-					onClick={() => {
+					className="add-bootcamp-button"
+				onClick={() => {
 						setAddButtonPopup(true);
 					}}
 				>

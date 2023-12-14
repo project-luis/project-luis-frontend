@@ -76,31 +76,31 @@ function AddBootcampPopup(props) {
 					<label>Languages: </label>
 					<input type="text" name="languages" onChange={handleInputChange} />
 
-					<label>Bootcamp Code</label>
-					<input type="text" name="bootcampCode" onChange={handleInputChange} />
+					{/* <label>Bootcamp Code</label>
+					<input type="text" name="bootcampCode" onChange={handleInputChange} /> */}
 
-					<label>Hours Per Week?</label>
+					{/* <label>Hours Per Week?</label>
 					<input
 						type="number"
 						name="hoursPerWeek"
 						onChange={handleInputChange}
-					/>
+					/> */}
 
-					<label>Length of Course: </label>
+					{/* <label>Length of Course: </label>
 					<input
 						type="number"
 						name="courseLength"
 						onChange={handleInputChange}
-					/>
+					/> */}
 
-					<label>Start Date: </label>
+					{/* <label>Start Date: </label>
 					<input type="date" name="startDate" onChange={handleInputChange} />
 
 					<label>End Date: </label>
-					<input type="date" name="endDate" onChange={handleInputChange} />
+					<input type="date" name="endDate" onChange={handleInputChange} /> */}
 
-					<label>How many days per week?: </label>
-					<input type="number" name="daysofWeek" onChange={handleInputChange} />
+					{/* <label>How many days per week?: </label>
+					<input type="number" name="daysofWeek" onChange={handleInputChange} /> */}
 
 					<button type="submit">Submit</button>
 				</form>

@@ -93,9 +93,13 @@ function SpesificBootcampPage() {
 					getBootcampFromApi={getBootcampFromApi}
 				></AddmodulePopup>
 				<section className="description-and-teacher">
-					<h1>{bootcamp.name}</h1>
+					<h1>
+					<img className="bootcamps-module-logo" src={bootcamp.avatarUrl} />
+					{bootcamp.name}
+				</h1>
 					<p>Teacher: {profile?.fullName}</p>
-					<p>{bootcamp.description}</p>
+					<p>Language(s): {bootcamp.languages}</p>
+				<p>{bootcamp.description}</p>
 				</section>
 				<section className="bootcamp-buttons">
 					<button

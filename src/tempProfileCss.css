@@ -218,3 +218,23 @@ h2 {
 .existing-modules li{
     list-style-type: none;
 }
+
+.add-bootcamp-button {
+    width: 100px;
+    height: 100px;
+    padding: 13px 18px;
+    border-radius: 60px;
+    max-width: 100px;
+
+    position: sticky;
+    float: inherit;
+    bottom: 3%;
+    left: 3%;
+
+    text-decoration: none;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
