@@ -42,6 +42,10 @@ h2 {
 
 /* ---- */
 
+.news img{
+    max-width:100%;
+}
+
 .bootcamp {
     border: 1px solid gray;
     margin: 1em;

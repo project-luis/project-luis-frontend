@@ -30,37 +30,62 @@ function Homepage(props) {
 		getProfileData(profile);
 	}, []);
 
-
 	return (
 		<>
 			<Navbar />
 
 			<div className="homepage-full">
-
 				<div className="homepage-sidebar-left">
 					<h3>Your Bootcamps</h3>
 				</div>
 
 				<div className="homepage-content-right">
 					<div className="welcome-banner">
-						<h2>Hello {profile.fullName}</h2>
+						<h2>Welcome home, {profile.fullName}!</h2>
 					</div>
 
 					<section className="homepage-news-block">
-						<h3>Bootcamp News</h3>
-						<div>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-							aliquet ligula felis, id varius arcu interdum ac. Curabitur non
-							risus lorem. Mauris eget tristique ipsum. Vivamus aliquet bibendum
-							ultrices. Duis auctor fringilla justo, vel tincidunt mi
-							ullamcorper sed. Phasellus a magna eu turpis venenatis tincidunt.
-							Morbi eu facilisis elit, ut maximus urna. Sed at iaculis tortor.
-							Donec ullamcorper fringilla eros, ut pellentesque nulla dignissim
-							ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-							vitae tristique nisl, a tincidunt dolor. Integer augue sem,
-							viverra nec feugiat at, gravida at libero. Suspendisse lobortis,
-							est id cursus interdum, odio nunc fringilla erat, id cursus tellus
-							dolor eu risus.
+						<h2>Bootcamp News</h2>
+						<div className="news">
+							<img
+								src="https://images.idgesg.net/images/article/2023/03/shutterstock_2231537301-100938356-large.jpg?auto=webp&quality=85,70"
+								alt=""
+							/>
+							<h3>TypeScript 5.3 arrives with support for import attributes</h3>
+							<p>
+								ECMAScript import attributes will support additional types of
+								modules in a common way across JavaScript environments, starting
+								with JSON modules.
+								<br />
+								TypeScript 5.3, an upgrade to Microsoft’s strongly typed
+								JavaScript variant that adds support for import attributes for
+								ECMAScript modules, is now available as a production release.
+							</p>
+						</div>
+						<hr />
+						<div className="news">
+							<img
+								src="https://digitalfutures.cio.com/wp-content/uploads/sites/55/2023/11/Using-AI-to-strengthen-cybersecurity-shutterstock_510397921-1000x565.jpg.webp"
+								alt=""
+							/>
+							<h3>Using AI to strengthen cybersecurity</h3>
+							<p>
+								It’s a grim reality: Bad actors are harnessing artificial
+								intelligence (AI) to improve the effectiveness of their attacks.
+								It’s time for IT and business leaders to put AI to work
+								defending their data. The best place to start is speeding up
+								attack detection.
+								<br />
+								“When it comes to discovering attacks, it’s all about the data.
+								The faster you can analyze it, the better,” says Rita Jackson,
+								senior vice president of product marketing at OpenText.
+								<br />
+								“Although the sheer quantity of data that must be scanned is
+								steadily increasing, there’s more processing power than ever —
+								plenty for AI to discern trends and patterns that might betray a
+								breach,” says Jeff Healey, vice president of analytics and AI
+								product marketing at OpenText.
+							</p>
 						</div>
 					</section>
 				</div>
