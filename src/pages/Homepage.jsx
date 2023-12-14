@@ -9,26 +9,26 @@ function Homepage(props) {
 	const [profile, setProfile] = useState("");
 	const { user } = useContext(AuthContext);
 
-
 	const getProfileData = () => {
-		useEffect(() => {
-			const storedToken = localStorage.getItem('authToken');
+		const storedToken = localStorage.getItem('authToken');
 
-			axios
-				.get(`${import.meta.env.VITE_API_URL}/profile/${user?._id}`, {
-					headers: { Authorization: `Bearer ${storedToken}` },
-				})
-				.then((response) => {
-					const profile = response.data;
-					setProfile(profile);
-				})
-				.catch((error) => {
-					console.log(`API: Connection Failed: ${error}`);
-				});
-		}, []);
+		axios
+			.get(`${import.meta.env.VITE_API_URL}/profile/${user?._id}`, {
+				headers: { Authorization: `Bearer ${storedToken}` },
+			})
+			.then((response) => {
+				const profile = response.data;
+				setProfile(profile);
+			})
+			.catch((error) => {
+				console.log(`API: Connection Failed: ${error}`);
+			});
 	};
 
-	getProfileData();
+	useEffect(() => {
+		getProfileData(profile);
+	}, []);
+
 
 	return (
 		<>
@@ -51,7 +51,7 @@ function Homepage(props) {
 					<div className="welcome-banner">
 						<h2>Hello {profile.fullName}</h2>
 					</div>
-				
+
 					<section className="homepage-news-block">
 						<h3>Bootcamp News</h3>
 						<div>

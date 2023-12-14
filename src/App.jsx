@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
@@ -8,6 +7,9 @@ import ProfilePage from './pages/ProfilePage';
 import BootcampsPage from './pages/BootcampsPage';
 import SpesificBootcampPage from './pages/SpesificBootcampPage';
 import SpesificModulePage from './pages/SpesificModulePage';
+
+//import 'bootstrap/dist/css/bootstrap.min.css';
+//import './App.css';
 
 function App() {
 	return (
