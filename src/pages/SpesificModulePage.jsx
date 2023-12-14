@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 import EditModulePopup from '../components/EditModulePopup';
 
 function SpesificModulePage(props) {
@@ -60,8 +61,10 @@ function SpesificModulePage(props) {
 	};
 
 	return (
-		<div className="spesificModule">
-			{/* <section className="module-modules-list">
+		<>
+			<Navbar />
+			<div className="spesificModule">
+				{/* <section className="module-modules-list">
 				<h3>Bootcamps</h3>
 				<li>
 					<ul>
@@ -69,35 +72,34 @@ function SpesificModulePage(props) {
 					</ul>
 				</li>
 			</section> */}
-			<section className="module-description">
-				<h1>
-					<img className="module-avatar" src={module.avatarUrl} />
-					{module.name}
-				</h1>
-				<p>{module.description}</p>
-			</section>
-			<section className="module-buttons">
-				<button
-					onClick={() => {
-						setEditModuleButtonPopup(true);
-					}}
-				>
-					Edit Module
-				</button>
-				<EditModulePopup
-					trigger={editModuleButtonPopup}
-					setTrigger={setEditModuleButtonPopup}
-					getBootcampsFromApi={getBootcampsFromApi}
-					getModuleFromApi={getModuleFromApi}
-				></EditModulePopup>
-				<Link to={'/bootcamps'}>
-					<button onClick={deleteModule}>Delete Module</button>
-				</Link>
-				<Link to="/index">
-					<button>(TEMP) Home</button>
-				</Link>
-			</section>
-		</div>
+				<section className="module-description">
+					<h1>
+						<img className="module-avatar" src={module.avatarUrl} />
+						{module.name}
+					</h1>
+					<p>{module.description}</p>
+				</section>
+				<section className="module-buttons">
+					<button
+						onClick={() => {
+							setEditModuleButtonPopup(true);
+						}}
+					>
+						Edit Module
+					</button>
+					<EditModulePopup
+						trigger={editModuleButtonPopup}
+						setTrigger={setEditModuleButtonPopup}
+						getBootcampsFromApi={getBootcampsFromApi}
+						getModuleFromApi={getModuleFromApi}
+					></EditModulePopup>
+					<Link to={'/bootcamps'}>
+						<button onClick={deleteModule}>Delete Module</button>
+					</Link>
+
+				</section>
+			</div>
+		</>
 	);
 }
 

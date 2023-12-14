@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 
+import Navbar from '../components/Navbar';
 import '../tempHomepageCss.css';
 
 function Homepage(props) {
@@ -32,16 +33,9 @@ function Homepage(props) {
 
 	return (
 		<>
-			<div className="homepage-full">
-				<div className="homepage-hamburger-menu">
-					<Link to={`/profile/${user?._id}`}>
-						<button>My Profile</button>
-					</Link>
+			<Navbar />
 
-					<Link to="/bootcamps">
-						<button>Bootcamps</button>
-					</Link>
-				</div>
+			<div className="homepage-full">
 
 				<div className="homepage-sidebar-left">
 					<h3>Your Bootcamps</h3>

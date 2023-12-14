@@ -1,4 +1,5 @@
 import React from "react";
+import "../Navbar.css";
 
 function LogoutHandler() {
     const handleLogout = () => {
@@ -8,7 +9,7 @@ function LogoutHandler() {
 
     return (
         <button
-            className="logout-btn"
+            className="nav-btn"
             onClick={handleLogout}>
             Log Out
         </button>

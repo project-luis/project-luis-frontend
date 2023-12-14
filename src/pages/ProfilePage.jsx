@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
+import Navbar from '../components/Navbar';
 import EditProfilePopup from '../components/EditProfilePopup';
 import LogoutHandler from '../components/LogoutHandler';
 
@@ -57,95 +58,84 @@ function ProfilePage(props) {
 	};
 
 	return (
-		<div className="profile-page">
+		<>
+			<Navbar />
 
-			<Stack direction="horizontal" gap={3} className="col-md-5 mx-auto">
+			<div className="profile-page">
+				<Stack direction="horizontal" gap={3} className="col-md-5 mx-auto">
 
-				<div className="p-2">
-					<Link to="/index">
-						<Button variant="secondary">Home</Button>
-					</Link>
-				</div>
+					<div className="p-2 ms-auto">
+						<button onClick={() => setEditProfileButton(true)}>
+							Edit Profile
+						</button>
+					</div>
 
-				<div className="p-2 ms-auto">
-					<button onClick={() => setEditProfileButton(true)}>
-						Edit Profile
-					</button>
-				</div>
+				</Stack>
 
-				<div className="vr" />
+				<div className="profile-page-main">
+					{[userProfile].map((userItem, i) => {
+						return (
+							<div key={i}>
+								<div className="profile-detail-card-container">
+									<div className="profile-detail-card-content">
+										<img
+											className="profile-avatar"
+											src={userItem.avatarUrl || "https://static.thenounproject.com/png/1876981-200.png"}
+										/>
+										<p>{userItem.fullName}</p>
+										<p>I speak: {userItem.languages}</p>
+									</div>
+								</div>
 
-				<div className="p-2">
-					<LogoutHandler>
-						<button></button>
-					</LogoutHandler>
-				</div>
+								<div className="profile-contact-card-container">
+									<div className="profile-contact-card-content">
+										<a href={`mailto:${userItem.email}`}>Email</a>
 
-			</Stack>
+										<a href={userItem.linkedInUrl || "https://www.linkedin.com/"}
+											target="_blank"
+											rel="noreferrer">LinkedIn
+										</a>
 
-			<div className="profile-page-main">
-				{[userProfile].map((userItem, i) => {
-					return (
-						<div key={i}>
-							<div className="profile-detail-card-container">
-								<div className="profile-detail-card-content">
-									<img
-										className="profile-avatar"
-										src={userItem.avatarUrl || "https://static.thenounproject.com/png/1876981-200.png"}
-									/>
-									<p>{userItem.fullName}</p>
-									<p>I speak: {userItem.languages}</p>
+										<a href={userItem.githubUrl || "https://github.com/"}
+											target="_blank"
+											rel="noreferrer">GitHub
+										</a>
+									</div>
+								</div>
+
+								<div className="profile-about-card-container">
+									<div className="profile-about-card-content">
+										<p>My bootcamps:</p>
+										{bootcampData.map((bootcampItem, i) => {
+											return (
+												<div>
+													<ul>
+														<li key={i}>
+															<Link to={`/bootcamps/${bootcampItem._id}`}>
+																{bootcampItem.name}
+															</Link>
+														</li>
+													</ul>
+												</div>
+											);
+										})}
+										<p>My experience and expertise:<br />{userItem.field}</p>
+										<p>About me:<br />{userItem.aboutUser}</p>
+									</div>
 								</div>
 							</div>
+						);
+					})}
+				</div>
 
-							<div className="profile-contact-card-container">
-								<div className="profile-contact-card-content">
-									<a href={`mailto:${userItem.email}`}>Email</a>
+				<EditProfilePopup
+					trigger={editProfileButton}
+					setTrigger={setEditProfileButton}
+					updateUserData={updateUserData}>
+				</EditProfilePopup>
 
-									<a href={userItem.linkedInUrl || "https://www.linkedin.com/"}
-										target="_blank"
-										rel="noreferrer">LinkedIn
-									</a>
-
-									<a href={userItem.githubUrl || "https://github.com/"}
-										target="_blank"
-										rel="noreferrer">GitHub
-									</a>
-								</div>
-							</div>
-
-							<div className="profile-about-card-container">
-								<div className="profile-about-card-content">
-									<p>My bootcamps:</p>
-									{bootcampData.map((bootcampItem, i) => {
-										return (
-											<div>
-												<ul>
-													<li key={i}>
-														<Link to={`/bootcamps/${bootcampItem._id}`}>
-															{bootcampItem.name}
-														</Link>
-													</li>
-												</ul>
-											</div>
-										);
-									})}
-									<p>My experience and expertise:<br />{userItem.field}</p>
-									<p>About me:<br />{userItem.aboutUser}</p>
-								</div>
-							</div>
-						</div>
-					);
-				})}
 			</div>
-
-			<EditProfilePopup
-				trigger={editProfileButton}
-				setTrigger={setEditProfileButton}
-				updateUserData={updateUserData}>
-			</EditProfilePopup>
-
-		</div>
+		</>
 	);
 }
 
