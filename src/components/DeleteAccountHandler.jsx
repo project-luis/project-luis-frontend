@@ -16,8 +16,8 @@ function DeleteAccountHandler() {
                     headers: { Authorization: `Bearer ${storedToken}` },
                 })
                 .then((response) => {
-                    localStorage.removeItem("authToken");
                     window.location.href = "/auth/signup";
+                    localStorage.removeItem("authToken");
                 })
                 .catch((error) => {
                     console.log(error);
