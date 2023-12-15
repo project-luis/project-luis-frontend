@@ -45,7 +45,8 @@
 }
 
 .homepage-post-img {
-    width: 85%;
+    width: 100%;
+
 }
 
 /* Profile Page */ 
@@ -61,6 +62,11 @@
     width: 100%;
 }
 
+.profile-and-contact {
+    display: flex;
+    flex-direction: row;
+}
+
 .profile-detail-card-container,
 .profile-contact-card-container,
 .profile-about-card-container {
@@ -72,7 +78,8 @@
     text-align: start;
     font-size: 15px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .profile-contact-card-content {
