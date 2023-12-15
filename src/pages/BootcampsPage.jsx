@@ -5,7 +5,7 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import AddBootcampPopup from '../components/AddBootcampPopup';
 
-import "../tempProfileCss.css";
+import "../BootcampsModules.css";
 
 function BootcampsPage() {
 	const [bootcampsArray, setBootcampsArray] = useState([]);

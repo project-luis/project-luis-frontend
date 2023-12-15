@@ -1,0 +1,53 @@
+.delete-btn {
+    background-color: #a30000;
+    border: 1px solid rgba(255, 255, 240, 0.8);
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+    width: 120px;
+    height: 50px;
+    color: #d9e4e9;
+    font-weight: bold;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.delete-btn:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.popup-form-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.popup-form-container {
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0, 0%, 50%, 0.3);/* background color of popup outside */
+    display: flex;
+    justify-content: center;
+    color: #d9e4e9;
+}
+
+.popup-form-inner {
+    background-color: #242424; /* background color of popup itself */
+    display: contents;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 100%;
+    max-width: 50%;
+}
+
+.popup-form {
+    display: flex;
+    flex-direction: column;
+}

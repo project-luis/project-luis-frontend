@@ -9,7 +9,7 @@ function LogoutHandler() {
 
     return (
         <button
-            className="nav-btn"
+            className="logout-btn"
             onClick={handleLogout}>
             Log Out
         </button>

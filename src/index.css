@@ -1,11 +1,11 @@
 :root {
-  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #0A1828;
+  background-color: #091217;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,7 +15,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #4286f4;
   text-decoration: inherit;
 }
 a:hover {

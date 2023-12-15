@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import DeleteAccountHandler from '../components/DeleteAccountHandler';
 
-import '../tempProfileCss.css';
+import "../SubmitForms.css";
 
 function EditProfilePopup(props) {
 	const [userProfile, setUserProfile] = useState({
@@ -94,9 +94,9 @@ function EditProfilePopup(props) {
 	}, []);
 
 	return props.trigger ? (
-		<div className="edit-profile-popup">
-			<div className="edit-profile-popup-inner">
-				<form className="edit-profile-form" onSubmit={handleSubmit}>
+		<div className="popup-form-container">
+			<div className="popup-form-inner">
+				<form className="popup-form" onSubmit={handleSubmit}>
 					<label>Your Name</label>
 					<input
 						type="text"
@@ -161,13 +161,13 @@ function EditProfilePopup(props) {
 						onChange={handleEditData}
 					/>
 
-					<button type="submit">Submit</button>
+					<button type="popup-form-btn">Submit</button>
 				</form>
 
 				{errorMessage && <p className="error-message">{errorMessage}</p>}
 
 				<button
-					className="edit-profile-popup-close-btn"
+					className="popup-form-btn"
 					onClick={() => props.setTrigger(false)}
 				>
 					Close

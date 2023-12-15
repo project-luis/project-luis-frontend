@@ -1,46 +1,3 @@
-.profile-buttons {
-    width: 150px;
-}
-
-/* ---- */
-
-.profile-page-main {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
-    width: 100vw;
-}
-
-.profile-detail-card-container,
-.profile-contact-card-container,
-.profile-about-card-container {
-    border: 1px solid ivory;
-    border-radius: 20px;
-    padding: 10%;
-    margin: 5%;
-    max-width: 300px;
-    text-align: start;
-}
-
-.profile-contact-card-content {
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.profile-avatar {
-    max-width: 180px;
-}
-
-h2 {
-    color: #BFA181;
-}
-
-/* ---- */
 
 .bootcamp {
     border: 1px solid gray;
@@ -147,70 +104,6 @@ h2 {
     height: 4em;
 }
 
-.edit-bootcamp-popup {
-    position: fixed;
-    overflow-y: scroll;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: hsl(0, 0%, 50%, 0.3);/* background color of popup outside */
-    display: flex;
-    justify-content: center;
-    color: white;
-}
-
-.bootcamp-popup-inner {
-    background-color: #242424; /* background color of popup itself */
-    display: contents;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    width: 100%;
-    max-width: 50%;
-}
-
-.edit-bootcamp-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.close-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-}
-
-/* popup */
-
-.edit-profile-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 85vh;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.edit-profile-popup-inner {
-    position: relative;
-    padding: 30px;
-    width: 80%;
-    height: 80%;
-    max-width: 500px;
-    background-color: navy;
-}
-
-.edit-profile-popup-close-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-}
-
 .existing-modules {
     border: 1px solid gray;
 }
@@ -243,6 +136,11 @@ h2 {
     align-items: center;
 }
 
+.add-bootcamp-button:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 2em #d9e4e9);
+}
+
 .module-logo-tester {
     padding: 10px;
     border: 1px solid rgba(191,161,129,0.25);
@@ -252,5 +150,6 @@ h2 {
 
 .module-logo-tester:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 10px 20px 2px rgba(191,161,129,0.7);
+    /*box-shadow: 0px 10px 20px 2px rgba(191,161,129,0.7);*/
+    filter: drop-shadow(0 0 2em #BFA181);
 }

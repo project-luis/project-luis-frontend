@@ -47,7 +47,7 @@ function Navbar() {
                 <button className="nav-btn">My Profile</button>
             </Link>
 
-            <button className="nav-btn"><LogoutHandler /></button>
+            <LogoutHandler />
 
         </div>
     );

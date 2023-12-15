@@ -1,4 +1,3 @@
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
@@ -9,6 +8,8 @@ import SpesificBootcampPage from './pages/SpesificBootcampPage';
 import SpesificModulePage from './pages/SpesificModulePage';
 import IsPrivate from './components/IsPrivate';
 import IsAnon from './components/IsAnon';
+
+import './App.css';
 
 function App() {
 	return (

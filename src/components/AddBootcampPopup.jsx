@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
+import "../SubmitForms.css";
+
 function AddBootcampPopup(props) {
 	const [bootcamp, setBootcamp] = useState({
 		name: '',
@@ -52,11 +54,11 @@ function AddBootcampPopup(props) {
 	};
 
 	return props.trigger ? (
-		<div className="edit-bootcamp-popup">
-			<div className="bootcamp-popup-inner">
+		<div className="popup-form-container">
+			<div className="popup-form-inner">
 				<h1>Add New Bootcamp</h1>
 				<form
-					className="edit-bootcamp-form"
+					className="popup-form"
 					onSubmit={handleSubmit}
 					method="POST"
 				>
@@ -102,11 +104,11 @@ function AddBootcampPopup(props) {
 					{/* <label>How many days per week?: </label>
 					<input type="number" name="daysofWeek" onChange={handleInputChange} /> */}
 
-					<button type="submit">Submit</button>
+					<button type="popup-form-btn">Submit</button>
 				</form>
 				{errorMessage && <p className="error-message">{errorMessage}</p>}
 			</div>
-			<button className="close-btn" onClick={() => props.setTrigger(false)}>
+			<button className="popup-form-btn" onClick={() => props.setTrigger(false)}>
 				Close
 			</button>
 			{props.children}

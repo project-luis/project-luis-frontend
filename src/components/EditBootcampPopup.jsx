@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import "../SubmitForms.css";
+
 function EditBootcampPopup(props) {
 	const [bootcamp, setBootcamp] = useState({
 		name: '',
@@ -78,10 +80,10 @@ function EditBootcampPopup(props) {
 	}, []);
 
 	return props.trigger ? (
-		<div className="edit-bootcamp-popup">
-			<div className="bootcamp-popup-inner">
+		<div className="popup-form-container">
+			<div className="popup-form-inner">
 				<h1>Edit This Bootcamp</h1>
-				<form className="edit-bootcamp-form" onSubmit={handleSubmit}>
+				<form className="popup-form" onSubmit={handleSubmit}>
 					<label>Name of The Bootcamp:</label>
 					<input
 						type="text"
@@ -163,11 +165,11 @@ function EditBootcampPopup(props) {
 						onChange={handleInputChange}
 					/> */}
 
-					<button type="submit">Submit</button>
+					<button type="popup-form-btn">Submit</button>
 				</form>
 				{errorMessage && <p className="error-message">{errorMessage}</p>}
 			</div>
-			<button className="close-btn" onClick={() => props.setTrigger(false)}>
+			<button className="popup-form-btn" onClick={() => props.setTrigger(false)}>
 				Close
 			</button>
 			{props.children}

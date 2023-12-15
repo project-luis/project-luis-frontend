@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import "../SubmitForms.css";
 
 function DeleteAccountHandler() {
     
@@ -27,7 +28,7 @@ function DeleteAccountHandler() {
 
     return (
         <button
-            className="delete-account-button"
+            className="delete-btn"
             onClick={handleDeleteAccount}>
             Delete Account
         </button>

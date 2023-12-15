@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import GetAllModules from './GetAllModules';
 
+import "../SubmitForms.css";
+
 function AddModulePopup(props) {
 	const { bootcampId } = useParams();
 	const [module, setmodule] = useState({
@@ -54,12 +56,12 @@ function AddModulePopup(props) {
 	};
 
 	return props.trigger ? (
-		<div className="edit-bootcamp-popup">
-			<div className="bootcamp-popup-inner">
+		<div className="popup-form-container">
+			<div className="popup-form-inner">
 				<GetAllModules bootcampId={bootcampId} />
 				<h3>Add New module</h3>
 				<form
-					className="edit-bootcamp-form"
+					className="popup-form"
 					onSubmit={handleSubmit}
 					method="POST"
 				>
@@ -106,11 +108,11 @@ function AddModulePopup(props) {
 					<label>How many days per week?: </label>
 					<input type="number" name="daysofWeek" onChange={handleInputChange} />
 
-					<button type="submit">Submit</button>
+					<button type="popup-form-btn">Submit</button>
 				</form>
 				{errorMessage && <p className="error-message">{errorMessage}</p>}
 			</div>
-			<button className="close-btn" onClick={() => props.setTrigger(false)}>
+			<button className="popup-form-btn" onClick={() => props.setTrigger(false)}>
 				Close
 			</button>
 			{props.children}

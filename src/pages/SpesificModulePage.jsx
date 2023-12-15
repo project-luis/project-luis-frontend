@@ -4,6 +4,8 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import EditModulePopup from '../components/EditModulePopup';
 
+import "../BootcampsModules.css";
+
 function SpesificModulePage(props) {
 	const [bootcampsArray, setbootcampsArray] = useState([]);
 	const [editModuleButtonPopup, setEditModuleButtonPopup] = useState(false);
@@ -81,6 +83,7 @@ function SpesificModulePage(props) {
 				</section>
 				<section className="module-buttons">
 					<button
+						className="function-btn"
 						onClick={() => {
 							setEditModuleButtonPopup(true);
 						}}
@@ -94,7 +97,9 @@ function SpesificModulePage(props) {
 						getModuleFromApi={getModuleFromApi}
 					></EditModulePopup>
 					<Link to={'/bootcamps'}>
-						<button onClick={deleteModule}>Delete Module</button>
+						<button
+							className="delete-btn"
+							onClick={deleteModule}>Delete Module</button>
 					</Link>
 
 				</section>

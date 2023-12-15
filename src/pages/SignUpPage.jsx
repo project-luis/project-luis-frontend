@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import "../App.css";
 
 function SignUpPage(props) {
 	const [fullName, setFullName] = useState('');
@@ -52,24 +53,34 @@ function SignUpPage(props) {
 	};
 
 	return (
-		<div className="SignUpPage">
-			<h1>Sign Up</h1>
+		<div className="login-signup-page">
+			<h1>Create an account</h1>
 
-			<form onSubmit={handleSubmit}>
-				<label>Name & Surname:</label>
-				<input type="text" name="name" value={fullName} onChange={handleName} />
+			<form
+				className="login-signup-form"
+				onSubmit={handleSubmit}>
 
-				<label>Password:</label>
-				<input
-					type="password"
-					name="password"
-					value={password}
-					onChange={handlePassword}
-				/>
+				<div className="login-signup-container">
+					<label>Name & Surname:</label>
+					<input type="text" name="name" value={fullName} onChange={handleName} />
+				</div>
 
-				<label>Email:</label>
-				<input type="email" name="email" value={email} onChange={handleEmail} />
+				<div className="login-signup-container">
+					<label>Password:</label>
+					<input
+						type="password"
+						name="password"
+						value={password}
+						onChange={handlePassword}
+					/>
+				</div>
 
+				<div className="login-signup-container">
+					<label>Email:</label>
+					<input type="email" name="email" value={email} onChange={handleEmail} />
+				</div>
+
+				{/*
 				<label>Field of Study:</label>
 				<input type="text" name="field" value={field} onChange={handleField} />
 
@@ -80,12 +91,13 @@ function SignUpPage(props) {
 					value={startDate}
 					onChange={handleStartDate}
 				/>
+				*/}
 
-				<button type="submit">Submit</button>
+				<button className="login-signup-btn" type="submit">Submit</button>
 			</form>
 			{errorMessage && <p className="error-message">{errorMessage}</p>}
 			<p>Already have an account?</p>
-			<Link to={'/'}>Login</Link>
+			<Link to={'/'}><button className="login-signup-btn">Login</button></Link>
 		</div>
 	);
 }

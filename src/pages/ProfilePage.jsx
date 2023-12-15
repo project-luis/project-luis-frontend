@@ -4,11 +4,7 @@ import axios from 'axios';
 
 import Navbar from '../components/Navbar';
 import EditProfilePopup from '../components/EditProfilePopup';
-import LogoutHandler from '../components/LogoutHandler';
-
-import { Stack, Button } from 'react-bootstrap';
-
-// import '../tempProfileCss.css';
+import '../HomepageProfilePage.css';
 
 function ProfilePage(props) {
 	const [userProfile, setUserProfile] = useState([]);
@@ -62,15 +58,11 @@ function ProfilePage(props) {
 			<Navbar />
 
 			<div className="profile-page">
-				<Stack direction="horizontal" gap={3} className="col-md-5 mx-auto">
-
-					<div className="p-2 ms-auto">
-						<button onClick={() => setEditProfileButton(true)}>
-							Edit Profile
-						</button>
-					</div>
-
-				</Stack>
+				<button
+				className="function-btn"
+				onClick={() => setEditProfileButton(true)}>
+					Edit Profile
+				</button>
 
 				<div className="profile-page-main">
 					{[userProfile].map((userItem, i) => {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 
 import Navbar from '../components/Navbar';
-import '../tempHomepageCss.css';
+import '../HomepageProfilePage.css';
 
 function Homepage(props) {
 	const [profile, setProfile] = useState('');

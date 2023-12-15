@@ -6,6 +6,8 @@ import EditBootcampPopup from '../components/EditBootcampPopup';
 import AddmodulePopup from '../components/AddModulePopUp';
 import { AuthContext } from '../context/auth.context';
 
+import "../BootcampsModules.css";
+
 function SpesificBootcampPage() {
 	const [modulesArray, setModulesArray] = useState([]);
 	const [addButtonPopup, setAddButtonPopup] = useState();
@@ -79,7 +81,7 @@ function SpesificBootcampPage() {
 						);
 					})}
 					<button
-						className="add-module-button"
+						className="function-btn"
 						onClick={() => {
 							setAddButtonPopup(true);
 						}}
@@ -94,15 +96,16 @@ function SpesificBootcampPage() {
 				></AddmodulePopup>
 				<section className="description-and-teacher">
 					<h1>
-					<img className="bootcamps-module-logo" src={bootcamp.avatarUrl} />
-					{bootcamp.name}
-				</h1>
+						<img className="bootcamps-module-logo" src={bootcamp.avatarUrl} />
+						{bootcamp.name}
+					</h1>
 					<p>Teacher: {profile?.fullName}</p>
 					<p>Language(s): {bootcamp.languages}</p>
-				<p>{bootcamp.description}</p>
+					<p>{bootcamp.description}</p>
 				</section>
 				<section className="bootcamp-buttons">
 					<button
+						className="function-btn"
 						onClick={() => {
 							setEditButtonPopup(true);
 						}}
@@ -115,7 +118,9 @@ function SpesificBootcampPage() {
 						getBootcampFromApi={getBootcampFromApi}
 					></EditBootcampPopup>
 					<Link to={'/bootcamps'}>
-						<button onClick={deleteBootcamp}>Delete Bootcamp</button>
+						<button
+							className="delete-btn"
+							onClick={deleteBootcamp}>Delete Bootcamp</button>
 					</Link>
 
 				</section>
