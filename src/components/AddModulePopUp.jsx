@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import GetAllModules from './GetAllModules';
 
-import "../SubmitForms.css";
+import '../SubmitForms.css';
 
 function AddModulePopup(props) {
 	const { bootcampId } = useParams();
@@ -59,27 +59,24 @@ function AddModulePopup(props) {
 		<div className="popup-form-container">
 			<div className="popup-form-inner">
 				<GetAllModules bootcampId={bootcampId} />
-				<h3>Add New module</h3>
-				<form
-					className="popup-form"
-					onSubmit={handleSubmit}
-					method="POST"
-				>
-					<label>Name of The module:</label>
-					<input type="text" name="name" onChange={handleInputChange} />
+				<div className="add-new-module-div">
+					<h3>Add New module</h3>
+					<form className="popup-form" onSubmit={handleSubmit} method="POST">
+						<label>Name of The module:</label>
+						<input type="text" name="name" onChange={handleInputChange} />
 
-					<label>Description:</label>
-					<textarea
-						type="textarea"
-						name="description"
-						onChange={handleInputChange}
-						rows={5}
-					/>
+						<label>Description:</label>
+						<textarea
+							type="textarea"
+							name="description"
+							onChange={handleInputChange}
+							rows={5}
+						/>
 
-					<label>Logo of the module:</label>
-					<input type="text" name="avatarUrl" onChange={handleInputChange} />
+						<label>Logo of the module:</label>
+						<input type="text" name="avatarUrl" onChange={handleInputChange} />
 
-					<label>Languages: </label>
+						{/* <label>Languages: </label>
 					<input type="text" name="languages" onChange={handleInputChange} />
 
 					<label>module Code</label>
@@ -106,13 +103,17 @@ function AddModulePopup(props) {
 					<input type="date" name="endDate" onChange={handleInputChange} />
 
 					<label>How many days per week?: </label>
-					<input type="number" name="daysofWeek" onChange={handleInputChange} />
+					<input type="number" name="daysofWeek" onChange={handleInputChange} /> */}
 
-					<button type="popup-form-btn">Submit</button>
-				</form>
+						<button type="popup-form-btn">Submit</button>
+					</form>
+				</div>
 				{errorMessage && <p className="error-message">{errorMessage}</p>}
 			</div>
-			<button className="popup-form-btn" onClick={() => props.setTrigger(false)}>
+			<button
+				className="popup-form-btn"
+				onClick={() => props.setTrigger(false)}
+			>
 				Close
 			</button>
 			{props.children}
