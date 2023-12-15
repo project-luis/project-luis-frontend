@@ -119,7 +119,7 @@ function SpesificBootcampPage() {
 					</div>
 					<h3>{bootcamp.description}</h3>
 				</section>
-				<section className="bootcamp-buttons">
+				<section className="buttons">
 					<button
 						className="function-btn"
 						onClick={() => {

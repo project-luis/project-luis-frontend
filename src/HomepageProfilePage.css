@@ -1,42 +1,44 @@
 /* Homepage */
 
-.homepage-hamburger-menu {
-    margin: 20px;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.homepage-sidebar-left {
-    width: 50%;
-    margin: 20px;
-    border: 1px solid #d9e4e9;
-    border-radius: 20px;
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.welcome-banner {
-    text-align: start;
-}
-
-.homepage-news-block {
-    border: 1px solid #d9e4e9;
-    border-radius: 20px;
-    padding: 10px;
-    width: 80%;
-    text-align: start;
-}
-
-.homepage-content-right {
-    display: flex;
-    flex-direction: column;
-}
-
 .homepage-full {
     display: flex;
     flex-direction: row;
+    align-items: center;
+}
+
+.homepage-container-left {
+    width: 20%;
+    margin: 20px;
+    border: 1px solid #d9e4e9;
+    border-radius: 20px;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepage-full-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.homepage-welcome-banner {
+    text-align: start;
+    font-size: 30px;
+}
+
+.homepage-container-right,
+.homepage-welcome-banner {
+    border: 1px solid #d9e4e9;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    width: 60%;
+    text-align: start;
+}
+
+.homepage-post-img {
+    width: 85%;
 }
 
 /* Profile Page */ 
@@ -89,4 +91,10 @@ h2 {
     font-weight: bold;
     will-change: filter;
     transition: filter 300ms;
+
+    position: sticky;
+    float: inherit;
+    flex-direction: row;
+    left: 80%;
+    top: 85%;
 }

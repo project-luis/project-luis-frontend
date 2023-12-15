@@ -83,7 +83,7 @@ function SpesificModulePage(props) {
 				</section>
 				<section className="module-buttons">
 					<button
-						className="function-btn"
+						className="module-function-btn"
 						onClick={() => {
 							setEditModuleButtonPopup(true);
 						}}
