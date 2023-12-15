@@ -35,9 +35,11 @@ function Homepage(props) {
 			<Navbar />
 
 			<div className="homepage-full">
+				{/*
 				<div className="homepage-container-left">
 					<h3>Your Bootcamps</h3>
 				</div>
+				*/}
 
 				<div className="homepage-full-right">
 					<div className="homepage-welcome-banner">
