@@ -82,6 +82,10 @@
     align-items: center;
 }
 
+.profile-contact-card-container {
+    width: 100%;
+}
+
 .profile-contact-card-content {
     text-align: start;
     display: flex;
