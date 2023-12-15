@@ -1,8 +1,48 @@
-# React + Vite
+# Project ``L.U.I.S.``
+by Alfonso and Mert
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+Project ``L.U.I.S.`` (Lecturer User Integration System) began as a concept for the integrating an organizations internal systems, programs, clients and admin.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For brevity during the course of planning, it has currently transitioned into a dynamic bootcamp program directory as navigated by an admin user (bootcamp instructor).
+
+### App Features + CRUD
+
+- Access permitted only to logged users
+
+- Three models in the database with interactivity between them
+
+- Welcome / home, profile, bootcamp and bootcamp modules pages
+
+- ***CRUD:*** ``signup`` to create a persistent user account 
+
+- ``login`` with your credentials
+
+- ``logout``
+
+- ***CRUD:*** ``delete account`` to permanently remove the user from the database and all authorization permissions and records from local storage
+
+- ***CRUD:*** display and edit user profile
+
+- ***CRUD:*** create, display, edit and delete listed bootcamps
+
+- ***CRUD:*** create, display, edit and delete listed modules
+
+### Run
+
+- ``npm run dev -- --port=3000`` in tandem with the backend program at ``port=5005``
+
+- Demo the app [here](https://project-luis.netlify.app/)
+
+### Work-in-progress
+
+- CSS organization and dynamic response
+
+- Functionality for student users with different features and limited comparative CRUD
+
+- More complex interactivity between models and users
+
+- Scaling to allow the app to work not just in a bootcamp and/or general school environment, but something that businesses can also use
+    - ie. bootcamps/models/students/teachers --> departments/projects/staff/managers, etc.
+
