@@ -126,8 +126,36 @@
     height: auto;
 }
 
-.description-and-teacher {
-    margin: 2%;
+.teacher-and-language {
+    margin: 0% 30% 0% 30% ;
+    display: flex;
+    display: nowrap;
+    flex-direction: row;
+    gap: 2%;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.teacher-and-language h1{
+    align-items: center;
+    text-align: center;
+    color:#BFA181;
+
+}
+
+.teacher-and-language hr{
+    margin: 0% 30% 0% 30%;
+}
+
+.bootcamp-buttons {
+    display: flex;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    gap: 5%;
+    width: 1em;
+    height: 4em;
 }
 
 .spesificModule {
