@@ -119,9 +119,9 @@ function SpesificBootcampPage() {
 					</div>
 					<h3>{bootcamp.description}</h3>
 				</section>
-				<section className="bootcamp-buttons">
+				<section className="buttons">
 					<button
-						className="function-btn"
+						className="bootcamp-function-btn"
 						onClick={() => {
 							setEditButtonPopup(true);
 						}}
@@ -135,7 +135,7 @@ function SpesificBootcampPage() {
 					></EditBootcampPopup>
 					<Link to={'/bootcamps'}>
 						<button
-							className="delete-btn"
+							className="delete-bootcamp-btn"
 							onClick={deleteBootcamp}>Delete Bootcamp</button>
 					</Link>
 				</section>

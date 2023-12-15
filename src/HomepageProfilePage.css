@@ -1,54 +1,64 @@
 /* Homepage */
 
-.homepage-hamburger-menu {
-    margin: 20px;
+.homepage-full {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.homepage-sidebar-left {
-    width: 50%;
+/*
+.homepage-container-left {
+    width: 20%;
     margin: 20px;
     border: 1px solid #d9e4e9;
     border-radius: 20px;
     text-align: start;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+}
+*/
+
+.homepage-full-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60em;
 }
 
-.welcome-banner {
+.homepage-welcome-banner {
     text-align: start;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
 }
 
-.homepage-news-block {
+.homepage-container-right,
+.homepage-welcome-banner {
     border: 1px solid #d9e4e9;
     border-radius: 20px;
     padding: 10px;
-    width: 80%;
+    margin: 10px;
+    width: 60%;
     text-align: start;
 }
 
-.homepage-content-right {
-    display: flex;
-    flex-direction: column;
-}
-
-.homepage-full {
-    display: flex;
-    flex-direction: row;
+.homepage-post-img {
+    width: 85%;
 }
 
 /* Profile Page */ 
 
+.profile-page {
+    width: 100%;
+}
+
 .profile-page-main {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
-    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .profile-detail-card-container,
@@ -56,10 +66,13 @@
 .profile-about-card-container {
     border: 1px solid #d9e4e9;
     border-radius: 20px;
-    padding: 10%;
-    margin: 5%;
-    max-width: 300px;
+    padding: 10px;
+    margin: 10px;
+    max-width: 35em;
     text-align: start;
+    font-size: 15px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .profile-contact-card-content {
@@ -89,4 +102,10 @@ h2 {
     font-weight: bold;
     will-change: filter;
     transition: filter 300ms;
+
+    position: sticky;
+    float: inherit;
+    flex-direction: row;
+    left: 80%;
+    top: 85%;
 }

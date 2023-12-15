@@ -35,19 +35,22 @@ function Homepage(props) {
 			<Navbar />
 
 			<div className="homepage-full">
-				<div className="homepage-sidebar-left">
+				{/*
+				<div className="homepage-container-left">
 					<h3>Your Bootcamps</h3>
 				</div>
+				*/}
 
-				<div className="homepage-content-right">
-					<div className="welcome-banner">
-						<h2>Welcome home, {profile.fullName}!</h2>
+				<div className="homepage-full-right">
+					<div className="homepage-welcome-banner">
+						<h2>Welcome, {profile.fullName}!</h2>
 					</div>
 
-					<section className="homepage-news-block">
+					<section className="homepage-container-right">
 						<h2>Tech News</h2>
-						<div className="news">
+						<div className="homepage-post">
 							<img
+								className="homepage-post-img"
 								src="https://images.idgesg.net/images/article/2023/03/shutterstock_2231537301-100938356-large.jpg?auto=webp&quality=85,70"
 								alt=""
 							/>
@@ -63,8 +66,9 @@ function Homepage(props) {
 							</p>
 						</div>
 						<hr />
-						<div className="news">
+						<div className="homepage-post">
 							<img
+								className="homepage-post-img"
 								src="https://digitalfutures.cio.com/wp-content/uploads/sites/55/2023/11/Using-AI-to-strengthen-cybersecurity-shutterstock_510397921-1000x565.jpg.webp"
 								alt=""
 							/>

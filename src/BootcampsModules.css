@@ -1,3 +1,145 @@
+/* BUTTONS */
+
+/*
+.bootcamp-buttons {
+    display: flex;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    gap: 5%;
+    width: 1em;
+    height: 4em;
+}
+
+    position: sticky;
+    float: inherit;
+    flex-direction: row;
+    left: 80%;
+    top: 75%;
+*/
+
+.module-buttons {
+    display: flex;
+    position: absolute;
+    top: 80%;
+    left: 60%;
+    gap: 5%;
+    width: 1em;
+    height: 4em;
+}
+
+.module-function-btn {
+    background-color: #101e27;
+    border: 1px solid rgba(191, 161, 129, 0.25);
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+    width: 120px;
+    height: 50px;
+    color: #BFA181;
+    font-weight: bold;
+    will-change: filter;
+    transition: filter 300ms;
+
+    position: sticky;
+    float: inherit;
+    flex-direction: row;
+    left: 80%;
+    top: 75%;
+}
+
+.delete-module-btn {
+    position: relative;
+    float: inherit;
+    flex-direction: row;
+    left: 30%;
+    top: 85%;
+
+    background-color: #a30000;
+    border: 1px solid rgba(255, 255, 240, 0.8);
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+    width: 120px;
+    height: 50px;
+    color: #d9e4e9;
+    font-weight: bold;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.delete-module-btn:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.delete-bootcamp-btn {
+    position: relative;
+    float: inherit;
+    flex-direction: row;
+    left: -10%;
+    top: 85%;
+
+    background-color: #a30000;
+    border: 1px solid rgba(255, 255, 240, 0.8);
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+    width: 120px;
+    height: 50px;
+    color: #d9e4e9;
+    font-weight: bold;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.delete-bootcamp-btn:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.module-function-btn {
+    position: relative;
+    float: inherit;
+    flex-direction: row;
+    left: 80%;
+    top: 55%;
+
+    background-color: #101e27;
+    border: 1px solid rgba(191, 161, 129, 0.25);
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+    width: 120px;
+    height: 50px;
+    color: #BFA181;
+    font-weight: bold;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.bootcamp-function-btn {
+    position: relative;
+    float: inherit;
+    flex-direction: row;
+    left: -10%;
+    top: 80%;
+
+    background-color: #101e27;
+    border: 1px solid rgba(191, 161, 129, 0.25);
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+    width: 120px;
+    height: 50px;
+    color: #BFA181;
+    font-weight: bold;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+/* ------- */
+
 
 .bootcamp {
     border: 1px solid gray;
@@ -27,8 +169,6 @@
     display: flex;
     flex-direction: row;
 }
-
-
 
 .bootcamp-modules-list {
     border: 0.4em inset gray;
@@ -74,16 +214,6 @@
     margin: 0% 30% 0% 30%;
 }
 
-.bootcamp-buttons {
-    display: flex;
-    position: fixed;
-    top: 80%;
-    left: 50%;
-    gap: 5%;
-    width: 1em;
-    height: 4em;
-}
-
 .spesificModule {
     display: flex;
 }
@@ -110,20 +240,6 @@
 .module-avatar {
     width: 4rem;
     height: auto;
-}
-
-.popup-form-inner {
-    gap: 1%
-}
-
-.module-buttons {
-    display: flex;
-    position: absolute;
-    top: 80%;
-    left: 60%;
-    gap: 5%;
-    width: 1em;
-    height: 4em;
 }
 
 .existing-modules {
@@ -191,3 +307,4 @@
     /*box-shadow: 0px 10px 20px 2px rgba(191,161,129,0.7);*/
     filter: drop-shadow(0 0 2em #BFA181);
 }
+
