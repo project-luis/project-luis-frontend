@@ -74,7 +74,10 @@ function SpesificBootcampPage() {
 						return (
 							<Link key={i} to={`/modules/${module._id}`}>
 								<li className="bootcamp-single-module">
-									<img className="bootcamp-module-logo" src={module.avatarUrl} />
+									<img
+										className="bootcamp-module-logo"
+										src={module.avatarUrl}
+									/>
 									{module.name}
 								</li>
 							</Link>
@@ -99,9 +102,22 @@ function SpesificBootcampPage() {
 						<img className="bootcamps-module-logo" src={bootcamp.avatarUrl} />
 						{bootcamp.name}
 					</h1>
-					<p>Teacher: {profile?.fullName}</p>
-					<p>Language(s): {bootcamp.languages}</p>
-					<p>{bootcamp.description}</p>
+					<div className="teacher-and-language">
+						<section className="teacher">
+							<h2>
+								<b>Teacher:</b>
+							</h2>
+							{profile?.fullName}
+						</section>
+						<hr />
+						<section className="language">
+							<h2>
+								<b>Language(s):</b>{' '}
+							</h2>
+							{bootcamp.languages}
+						</section>
+					</div>
+					<h3>{bootcamp.description}</h3>
 				</section>
 				<section className="bootcamp-buttons">
 					<button
@@ -110,7 +126,7 @@ function SpesificBootcampPage() {
 							setEditButtonPopup(true);
 						}}
 					>
-						Edit Bootcamp
+						Edit
 					</button>
 					<EditBootcampPopup
 						trigger={editButtonPopup}
@@ -122,7 +138,6 @@ function SpesificBootcampPage() {
 							className="delete-btn"
 							onClick={deleteBootcamp}>Delete Bootcamp</button>
 					</Link>
-
 				</section>
 			</div>
 		</>
