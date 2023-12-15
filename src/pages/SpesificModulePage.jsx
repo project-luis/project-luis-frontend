@@ -81,7 +81,7 @@ function SpesificModulePage(props) {
 					</h1>
 					<p>{module.description}</p>
 				</section>
-				<section className="module-buttons">
+				<section className="bootcamp-module-buttons">
 					<button
 						className="module-function-btn"
 						onClick={() => {
@@ -98,7 +98,7 @@ function SpesificModulePage(props) {
 					></EditModulePopup>
 					<Link to={'/bootcamps'}>
 						<button
-							className="delete-btn"
+							className="delete-module-btn"
 							onClick={deleteModule}>Delete Module</button>
 					</Link>
 
