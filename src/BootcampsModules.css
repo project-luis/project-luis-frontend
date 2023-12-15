@@ -246,8 +246,20 @@
     border: 1px solid gray;
 }
 
+.existing-modules ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0;
+}
+
 .existing-modules li{
     list-style-type: none;
+}
+
+.existing-modules a{
+    display: flex;
+    flex-direction: column;
 }
 
 .add-bootcamp-button {
@@ -272,6 +284,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.add-new-module-div {
+    border: 1px solid gray;
 }
 
 .add-bootcamp-button:hover {
